@@ -1,5 +1,5 @@
 # JCalc
-![Release](https://img.shields.io/badge/release-1.0.0-blue)
+![Release](https://img.shields.io/badge/release-1.0.0-blue) ![Java](https://img.shields.io/badge/Java-26-EA-blue)
 
  Features: 
 - Addition
