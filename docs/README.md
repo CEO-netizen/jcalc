@@ -1,8 +1,19 @@
 # JCalc
 
 # Features: 
-- trig functions
-- basic math
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Square root
+- Cube root
+- Sine
+- Power/Exponents
+- Modulus
+- Cosine
+- Tan
+- Logarithm
+- Atan2
 
 > [!IMPORTANT]
 > Generously licensed under MIT. See [LICENSE](/docs/LICENSE) for details.
