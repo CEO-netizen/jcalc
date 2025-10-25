@@ -197,6 +197,7 @@ public class Main {
 
           System.out.println("atan(x: " + num1_atan + " y: " + num2_atan + ") equals: " + (Math.toDegrees(Math.atan2(num1_atan, num2_atan))));
         }
+      break;
     }
   }
 }
