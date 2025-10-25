@@ -1,6 +1,6 @@
 # JCalc
 
-# Features: 
+ Features: 
 - Addition
 - Subtraction
 - Multiplication
