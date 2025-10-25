@@ -53,7 +53,7 @@ java -jar jcalc-1.0.0.jar --mod 16 12
 ```
 Cosine:
 ```bash
-java -jar jcalc-1.0.0.jar --cos 66 2
+java -jar jcalc-1.0.0.jar --cos 66 
 ```
 Tan:
 ```bash
