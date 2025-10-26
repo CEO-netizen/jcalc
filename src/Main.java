@@ -165,7 +165,7 @@ public class Main {
           System.out.println("No args required for help message.");
           System.exit(0);
         } else {
-          System.out.println("-(\33[31mJcalc-v1.0.1\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: --fib/-f [-r/--req -i/--iter --memo] ARG_AMOUNT: 1");
+          System.out.println("-(\33[31mJcalc-v1.0.1\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: --fib/-f [-r/--req -i/--iter --memo --modfib] ARG_AMOUNT: 1-2");
         }
       break;
 
@@ -247,6 +247,19 @@ public class Main {
 
               System.out.println("Memoized fibonacci (" + n1_fib_memo + ") = " + fibMemo(n1_fib_memo));
             }
+          break;
+
+          case "--modfib":
+            // Algorithm: modulus fibonacci
+            if (args.length != 4) {
+              System.out.println("Argument amount not met.\nUsage: --fib --modfib");
+              System.exit(0);
+            } else {
+              int num1_modfib = Integer.parseInt(args[1]);
+              int num2_modfib = Integer.parseInt(args[2]);
+
+              System.out.println("F(" + num1_modfib + ") % " + num2_modfib + " equals " + modFib(num1_modfib, num2_modfib));
+            }
         }
       }
     }
@@ -255,7 +268,7 @@ public class Main {
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
 
-  static long fibIterative(int n) {
+  public static long fibIterative(int n) {
     if (n <= 1) return n;
 
     long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
@@ -267,12 +280,28 @@ public class Main {
     return b;
   }
 
-  static long fibMemo(int n) {
+  public static long fibMemo(int n) {
     if (n <= 1) return n;
     if (fibCache.containsKey(n)) return fibCache.get(n);
 
     long result = fibMemo(n - 1) + fibMemo(n - 2);
     fibCache.put(n, result);
     return result;
+  }
+
+  public static long modFib(int n, int m) {
+    if (n == 0) return 0;
+    if (n == 1) return 1 % m;
+
+    long a = 0;
+    long b = 1;
+
+    for (int i = 2; i <= n; i++) {
+      long c = (a + b) % m;
+
+      a = b;
+      b = c;
+    }
+    return b;
   }
 }

@@ -1,5 +1,5 @@
 # JCalc
-![Release](https://img.shields.io/badge/release-1.0.0-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
+![Release](https://img.shields.io/badge/release-1.0.1-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
 
  Features: 
 - Addition
@@ -68,7 +68,11 @@ java -jar jcalc-1.0.1.jar --log 67
 Fibonacci algorithms:
 ```bash
 java -jar jcalc-1.0.1.jar --fib --req 62
+```
+```bash
 java -jar jcalc-1.0.1.jar --fib --iter 63
+```
+```bash
 java -jar jcalc-1.0.1.jar --fib --memo 10
 ```
 
