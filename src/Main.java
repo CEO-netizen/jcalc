@@ -5,11 +5,12 @@ public class Main {
 
   // Memoization cache 
   static Map<Integer, Long> fibCache = new HashMap<>();
+  static StringBuilder result = new StringBuilder();
 
   public static void main(String[] args) {
     if (args.length == 0) {
-    System.out.println("No arguments provided. Use -h or --help for usage info.");
-    System.exit(0);
+      System.out.println("No arguments provided. Use -h or --help for usage info.");
+      System.exit(0);
     }
     String command =  args[0];
     switch (command) {
@@ -154,7 +155,7 @@ public class Main {
           System.out.println("No args required for help message.");
           System.exit(0);
         } else {
-          System.out.println("-(\33[31mJcalc-v1.0.1\33[0m)-by-(\33[31mGage\33[0m)-\nBASIC FUNCTIONS:\n- SUBTRACTION: \33[31m-s/--subtract\33[0m ARG_AMOUNT: 2\n- MULTIPLICATION: \33[31m-m/--multiply\33[0m ARG_AMOUNT: 2\n- DIVISION \33[31m-d/--divide\33[0m ARG_AMOUNT: 2\n- ADDITION: \33[31m-a/--add\33[0m ARG_AMOUNT: 2\n- ADVANCED HELP: \33[31m-H/--help_advanced\33[0m ARG_AMOUNT: 0");
+          System.out.println("-(\33[31mJcalc-v1.0.2\33[0m)-by-(\33[31mGage\33[0m)-\nBASIC FUNCTIONS:\n- SUBTRACTION: \33[31m-s/--subtract\33[0m ARG_AMOUNT: 2\n- MULTIPLICATION: \33[31m-m/--multiply\33[0m ARG_AMOUNT: 2\n- DIVISION \33[31m-d/--divide\33[0m ARG_AMOUNT: 2\n- ADDITION: \33[31m-a/--add\33[0m ARG_AMOUNT: 2\n- ADVANCED HELP: \33[31m-H/--help_advanced\33[0m ARG_AMOUNT: 0");
         }
       break;
 
@@ -165,7 +166,7 @@ public class Main {
           System.out.println("No args required for help message.");
           System.exit(0);
         } else {
-          System.out.println("-(\33[31mJcalc-v1.0.1\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: --fib/-f [-r/--req -i/--iter --memo --modfib] ARG_AMOUNT: 1-2");
+          System.out.println("-(\33[31mJcalc-v1.0.2\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: \33[31m--fib/-f\33[0m [-r/--req -i/--iter --memo --modfib] ARG_AMOUNT: 1-2\n- CONVERSION: \33[31m--conv\33[0m [-hex/--hexadecimal --binary/-b] ARG_AMOUNT: 3");
         }
       break;
 
@@ -239,7 +240,7 @@ public class Main {
           case "--memo":
             // Algorithm: memoized fibonacci
             if (args.length != 3) {
-              System.out.println("Argument amount not met.\nUsage: --fib --memo <n>");
+              System.out.println("Argument amount not met.\nUsage: --fib --memo <number>");
               System.exit(0);
             } else {
               fibCache.clear();
@@ -252,7 +253,7 @@ public class Main {
           case "--modfib":
             // Algorithm: modulus fibonacci
             if (args.length != 4) {
-              System.out.println("Argument amount not met.\nUsage: --fib --modfib");
+              System.out.println("Argument amount not met.\nUsage: --fib --modfib number1 number2");
               System.exit(0);
             } else {
               int num1_modfib = Integer.parseInt(args[1]);
@@ -260,6 +261,64 @@ public class Main {
 
               System.out.println("F(" + num1_modfib + ") % " + num2_modfib + " equals " + modFib(num1_modfib, num2_modfib));
             }
+          break;
+        }
+
+      case "--conv": // convert commands
+        switch (args[1]) {
+          case "--binary": // binary flags
+          case "-b":
+            if (args.length != 4) {
+              System.out.println("Argument amount not met\nUsage: --binary <number> <type>\nTypes: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to octal");
+            } else {
+              String num1_bin_conv = args[2];
+              int type_bin_conv = Integer.parseInt(args[3]);
+              int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
+
+              if (type_bin_conv == 1) {
+                System.out.println( num1_bin_conv + " in decimal is " + dec_bin_conv);
+              } else if (type_bin_conv == 2) {
+                String hex_bin_conv = Integer.toHexString(dec_bin_conv);
+
+                System.out.println("Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
+              } else if (type_bin_conv == 3) {
+                String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
+
+                System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
+              }
+            }
+          break;
+
+          case "-hex":
+          case "--hexadecimal":
+            if (args.length != 4) {
+              System.out.println("Argument amount not met\nUsage: --hexadecimal <number> <type>\nTypes: 1 = convert hexadecimal to decimal");
+            }
+            String num1_hex_conv = args[2];
+            int type_hex_conv = Integer.parseInt(args[3]);
+            if (type_hex_conv == 1) {
+              try {
+                int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+                System.out.println("hexadecimal: " + num1_hex_conv + " -> Decimal: " + dec_hex_conv);
+              } catch (NumberFormatException e) {
+                 System.out.println("Error: invalid hexadecimal number.");
+
+                 System.exit(0);
+              }
+            } else if (type_hex_conv == 2) {
+              int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+              String bin_hex_conv = Integer.toBinaryString(dec_hex_conv);
+
+              try {
+                System.out.println("hexadecimal: " + num1_hex_conv + " -> Binary: " + bin_hex_conv);
+              } catch (NumberFormatException e) {
+                System.out.println("Error: invalid hexadecimal number");
+                System.exit(0);
+              }
+            }
+          break;
         }
       }
     }
