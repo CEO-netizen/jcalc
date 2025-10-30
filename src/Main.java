@@ -1,9 +1,31 @@
+/*
+*                                                                     
+*         ,---._                                            
+*       .-- -.' \                         ,--,              
+*       |    |   :                      ,--.'|              
+*       :    ;   |                      |  | :              
+*       :        |                      :  : '              
+*       |    :   :   ,---.     ,--.--.  |  ' |      ,---.   
+*       :           /     \   /       \ '  | |     /     \  
+*       |    ;   | /    / '  .--.  .-. ||  | :    /    / '  
+*   ___ l         .    ' /    \__\/: . .'  : |__ .    ' /   
+* /    /\    J   :'   ; :__   ," .--.; ||  | '.'|'   ; :__  
+* /  ../  `..-    ,'   | '.'| /  /  ,.  |;  :    ;'   | '.'| 
+* \    \         ; |   :    :;  :   .'   \  ,   / |   :    : 
+* \    \      ,'   \   \  / |  ,     .-./---`-'   \   \  /  
+*  "---....--'      `----'   `--`---'              `----'   
+*
+* author: Gage
+* license: MIT
+* creation year: 2025                                                                                                                       '
+*/
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
 
-  // Memoization cache 
+  // Memoization cache fof --memo flag.
   static Map<Integer, Long> fibCache = new HashMap<>();
   static StringBuilder result = new StringBuilder();
 
@@ -16,7 +38,7 @@ public class Main {
     switch (command) {
       case "-a":
       case "--add":
-        // Addition
+        // Addition using Integer.parseInt for numbers.
         if (args.length != 3) {
           System.out.println("Argument amount not met.\nUsage: -a number1 number2");
           System.exit(0);
@@ -30,11 +52,12 @@ public class Main {
 
       case "-m":
       case "--multiply":
-        // Multiplication
+        // Multiplication using Integer.parseInt for numbers.
         if (args.length != 3) {
           System.out.println("Argument amount not met.\nUsage: -m number1 number2");
           System.exit(0);
         } else {
+          // Make the first and second numbers in front of the flag.
           int num1_mul = Integer.parseInt(args[1]);
           int num2_mul = Integer.parseInt(args[2]);
 
@@ -264,7 +287,11 @@ public class Main {
           break;
         }
 
-      case "--conv": // convert commands
+      case "--conv": // convert commands using Integer.parseInt, Math, etc
+        if (args.length != 4) {
+          System.out.println("Argument amount not met.\nPlease use --hexadecimal or --binary with --conv");
+          System.exit(0);
+        }
         switch (args[1]) {
           case "--binary": // binary flags
           case "-b":
@@ -292,7 +319,7 @@ public class Main {
           case "-hex":
           case "--hexadecimal":
             if (args.length != 4) {
-              System.out.println("Argument amount not met\nUsage: --hexadecimal <number> <type>\nTypes: 1 = convert hexadecimal to decimal");
+              System.out.println("Argument amount not met\nUsage: --hexadecimal <number> <type>\nTypes: 1 = convert hexadecimal to decimal 2 = convert hexadecimal to binary 3 = convert hexadecimal to octal");
             }
             String num1_hex_conv = args[2];
             int type_hex_conv = Integer.parseInt(args[3]);
@@ -317,9 +344,20 @@ public class Main {
                 System.out.println("Error: invalid hexadecimal number");
                 System.exit(0);
               }
+            } else if (type_hex_conv == 3) {
+              int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+              String oct_hex_conv = Integer.toOctalString(dec_hex_conv);
+
+              try {
+                System.out.println("hexadecimal: " + num1_hex_conv + " -> octal: " + oct_hex_conv);
+              } catch (NumberFormatException e) {
+                System.out.println("Error: invalid hexadecimal numher");
+                System.exit(0);
+              }
             }
           break;
-        }
+        } // end --conv switch
       }
     }
   static long fibRecursive(int n) {
