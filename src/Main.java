@@ -1,19 +1,19 @@
 /*
-*                                                                     
-*         ,---._                                            
-*       .-- -.' \                         ,--,              
-*       |    |   :                      ,--.'|              
-*       :    ;   |                      |  | :              
-*       :        |                      :  : '              
-*       |    :   :   ,---.     ,--.--.  |  ' |      ,---.   
-*       :           /     \   /       \ '  | |     /     \  
-*       |    ;   | /    / '  .--.  .-. ||  | :    /    / '  
-*   ___ l         .    ' /    \__\/: . .'  : |__ .    ' /   
-* /    /\    J   :'   ; :__   ," .--.; ||  | '.'|'   ; :__  
-* /  ../  `..-    ,'   | '.'| /  /  ,.  |;  :    ;'   | '.'| 
-* \    \         ; |   :    :;  :   .'   \  ,   / |   :    : 
-* \    \      ,'   \   \  / |  ,     .-./---`-'   \   \  /  
-*  "---....--'      `----'   `--`---'              `----'   
+*
+*         ,---._
+*       .-- -.' \                         ,--,
+*       |    |   :                      ,--.'|
+*       :    ;   |                      |  | :
+*       :        |                      :  : '
+*       |    :   :   ,---.     ,--.--.  |  ' |      ,---.
+*       :           /     \   /       \ '  | |     /     \
+*       |    ;   | /    / '  .--.  .-. ||  | :    /    / '
+*   ___ l         .    ' /    \__\/: . .'  : |__ .    ' /
+* /    /\    J   :'   ; :__   ," .--.; ||  | '.'|'   ; :__
+* /  ../  `..-    ,'   | '.'| /  /  ,.  |;  :    ;'   | '.'|
+* \    \         ; |   :    :;  :   .'   \  ,   / |   :    :
+* \    \      ,'   \   \  / |  ,     .-./---`-'   \   \  /
+*  "---....--'      `----'   `--`---'              `----'
 *
 * author: Gage
 * license: MIT
@@ -247,7 +247,7 @@ public class Main {
               System.out.println("fibonacci(" + n1_fib_req + ") = " + fibRecursive(n1_fib_req));
             }
           break;
-          
+
           case "--iter":
           case "-i":
             // Algorithm: Iterative fibonacci
@@ -286,44 +286,41 @@ public class Main {
             }
           break;
         }
+      break;
 
       case "--conv": // convert commands using Integer.parseInt, Math, etc
-        if (args.length != 4) {
-          System.out.println("Argument amount not met.\nPlease use --hexadecimal or --binary with --conv");
-          System.exit(0);
-        }
-        switch (args[1]) {
-          case "--binary": // binary flags
-          case "-b":
-            if (args.length != 4) {
-              System.out.println("Argument amount not met\nUsage: --binary <number> <type>\nTypes: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to octal");
-            } else {
-              String num1_bin_conv = args[2];
-              int type_bin_conv = Integer.parseInt(args[3]);
-              int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
+           switch (args[1]) {
+             case "--binary": // binary flags
+             case "-b":
+               if (args.length != 4) {
+                 System.out.println("Argument amount not met\nUsage: --binary <number> <type>\nTypes: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to octal");
+               } else {
+                 String num1_bin_conv = args[2];
+                 int type_bin_conv = Integer.parseInt(args[3]);
+                 int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
 
-              if (type_bin_conv == 1) {
-                System.out.println( num1_bin_conv + " in decimal is " + dec_bin_conv);
-              } else if (type_bin_conv == 2) {
-                String hex_bin_conv = Integer.toHexString(dec_bin_conv);
+                 if (type_bin_conv == 1) {
+                 System.out.println( num1_bin_conv + " in decimal is " + dec_bin_conv);
+                 } else if (type_bin_conv == 2) {
+                   String hex_bin_conv = Integer.toHexString(dec_bin_conv);
 
-                System.out.println("Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
-              } else if (type_bin_conv == 3) {
-                String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
+                   System.out.println("Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
+                 } else if (type_bin_conv == 3) {
+                   String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
 
-                System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
-              }
-            }
-          break;
+                   System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
+                 }
+               }
+             break;
 
-          case "-hex":
-          case "--hexadecimal":
-            if (args.length != 4) {
-              System.out.println("Argument amount not met\nUsage: --hexadecimal <number> <type>\nTypes: 1 = convert hexadecimal to decimal 2 = convert hexadecimal to binary 3 = convert hexadecimal to octal");
-            }
-            String num1_hex_conv = args[2];
-            int type_hex_conv = Integer.parseInt(args[3]);
-            if (type_hex_conv == 1) {
+             case "-hex":
+             case "--hexadecimal":
+               if (args.length != 4) {
+                 System.out.println("Argument amount not met\nUsage: --hexadecimal <number> <type>\nTypes: 1 = convert hexadecimal to decimal 2 = convert hexadecimal to binary 3 = convert hexadecimal to octal");
+                }
+              String num1_hex_conv = args[2];
+              int type_hex_conv = Integer.parseInt(args[3]);
+              if (type_hex_conv == 1) {
               try {
                 int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
 
@@ -334,48 +331,45 @@ public class Main {
                  System.exit(0);
               }
             } else if (type_hex_conv == 2) {
+              try {
               int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
 
               String bin_hex_conv = Integer.toBinaryString(dec_hex_conv);
 
-              try {
+
                 System.out.println("hexadecimal: " + num1_hex_conv + " -> Binary: " + bin_hex_conv);
               } catch (NumberFormatException e) {
                 System.out.println("Error: invalid hexadecimal number");
                 System.exit(0);
               }
             } else if (type_hex_conv == 3) {
+              try {
               int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
 
               String oct_hex_conv = Integer.toOctalString(dec_hex_conv);
 
-              try {
+
                 System.out.println("hexadecimal: " + num1_hex_conv + " -> octal: " + oct_hex_conv);
               } catch (NumberFormatException e) {
-                System.out.println("Error: invalid hexadecimal numher");
+                System.out.println("Error: invalid hexadecimal number");
                 System.exit(0);
               }
-            }
-          break;
-        } // end --conv switch
-      }
-    }
-  static long fibRecursive(int n) {
-    if (n <= 1) return n;
-    return fibRecursive(n - 1) + fibRecursive(n - 2);
-  }
+        }
+        break;
+      } // end conv switch
+    } // end command switch
+  } // end main
+   public static long fibIterative(int n) {
+      if (n <= 1) return n;
 
-  public static long fibIterative(int n) {
-    if (n <= 1) return n;
-
-    long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
-    for (int i = 2; i <= n; i++) {
-      long temp = a + b;
-      a = b;
-      b = temp;
-    }
-    return b;
-  }
+      long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
+      for (int i = 2; i <= n; i++) {
+        long temp = a + b;
+        a = b;
+        b = temp;
+       }
+      return b;
+     }
 
   public static long fibMemo(int n) {
     if (n <= 1) return n;
@@ -401,4 +395,10 @@ public class Main {
     }
     return b;
   }
-}
+
+  public static long fibRecursive(int n) {
+    if (n <= 1) return n;
+    return fibRecursive(n - 1) + fibRecursive(n - 2);
+  }
+
+} // end of main method
