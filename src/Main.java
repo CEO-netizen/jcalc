@@ -293,7 +293,7 @@ public class Main {
              case "--binary": // binary flags
              case "-b":
                if (args.length != 4) {
-                 System.out.println("Argument amount not met\nUsage: --binary <number> <type>\nTypes: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to octal");
+                 System.out.println("Argument amount not met\nUsage: --binary <number> <type>\nTypes: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to octal 4 = convert to ASCII");
                } else {
                  String num1_bin_conv = args[2];
                  int type_bin_conv = Integer.parseInt(args[3]);
@@ -309,6 +309,8 @@ public class Main {
                    String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
 
                    System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
+                 } else if (type_bin_conv == 4) {
+                   System.out.println("Binary: " + num1_bin_conv + " -> ASCII: " + (binaryToText(num1_bin_conv)));
                  }
                }
              break;
@@ -354,7 +356,7 @@ public class Main {
                 System.out.println("Error: invalid hexadecimal number");
                 System.exit(0);
               }
-        }
+            }
         break;
       } // end conv switch
     } // end command switch
@@ -400,5 +402,18 @@ public class Main {
     if (n <= 1) return n;
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
+  
+  public static String binaryToText(String binary) {
+    // Pad the binary string with leading zeros to make length a multiple of 8.
+    int padding = (8 - binary.length() % 8) % 8;
+    String paddedBinary = "0".repeat(padding) + binary;
 
-} // end of main method
+    result.setLength(0); // Clear previous results
+    for (int i = 0; i < paddedBinary.length(); i += 8) {
+      String byteChunk = paddedBinary.substring(i, i + 8);
+      int charCode = Integer.parseInt(byteChunk, 2);
+      result.append((char) charCode);
+    }
+    return result.toString();
+  }
+}
