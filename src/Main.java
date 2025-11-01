@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class Main {
 
-  // Memoization cache fof --memo flag.
+  // Memoization cache for --memo flag.
   static Map<Integer, Long> fibCache = new HashMap<>();
   static StringBuilder result = new StringBuilder();
 
@@ -81,7 +81,7 @@ public class Main {
 
       case "-d":
       case "--divide":
-        // Division 
+        // Division
         if (args.length != 3) {
           System.out.println("Argument amount not met\nUsage: -d number1 number2");
         } else {
@@ -96,7 +96,7 @@ public class Main {
       case "--sqrt":
         // Algorithm Square root using Math.sqrt
         if (args.length != 2) {
-          System.out.println("Argument amount not met.\nUsage: --sqrt number"); 
+          System.out.println("Argument amount not met.\nUsage: --sqrt number");
           System.exit(0);
         } else {
           int num_sqrt = Integer.parseInt(args[1]);
@@ -285,8 +285,11 @@ public class Main {
               System.out.println("F(" + num1_modfib + ") % " + num2_modfib + " equals " + modFib(num1_modfib, num2_modfib));
             }
           break;
-        }
-      break;
+          default:
+        	  System.out.println("Unknown argument: " + args[1]);
+        	  System.exit(0);
+          break;
+     }
 
       case "--conv": // convert commands using Integer.parseInt, Math, etc
            switch (args[1]) {
@@ -356,11 +359,25 @@ public class Main {
                 System.out.println("Error: invalid hexadecimal number");
                 System.exit(0);
               }
+            } else if (type_hex_conv == 4) {
+                try {
+                    String ascii_hex_conv = hexToText(num1_hex_conv);
+
+                    System.out.println("hexadecimal: " + num1_hex_conv + "ASCII: " + ascii_hex_conv);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid hexadecimal number");
+                    System.exit(0);
+                }
             }
+              default:
+            	  System.out.println("Unknown flag: " + args[1]);
         break;
-      } // end conv switch
+      } // end convert switch
+        default:
+        	System.out.println("Unknown flag: " + command);
     } // end command switch
   } // end main
+
    public static long fibIterative(int n) {
       if (n <= 1) return n;
 
@@ -402,7 +419,7 @@ public class Main {
     if (n <= 1) return n;
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
-  
+
   public static String binaryToText(String binary) {
     // Pad the binary string with leading zeros to make length a multiple of 8.
     int padding = (8 - binary.length() % 8) % 8;
@@ -414,6 +431,20 @@ public class Main {
       int charCode = Integer.parseInt(byteChunk, 2);
       result.append((char) charCode);
     }
+
     return result.toString();
+
+  }
+
+  public static String hexToText(String hex) {
+      for (int i = 0; i < hex.length(); i += 2) {
+        // get two hex characters
+        String str = hex.substring(i, i + 2);
+        // convert to decimal and then to char
+        result.append((char) Integer.parseInt(str, 16));
+      }
+
+      return result.toString();
+
   }
 }
