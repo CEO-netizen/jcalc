@@ -1,8 +1,11 @@
 /*
- *  ___  \   /  ___ ___ ___ ___ ___ . ___  ___  ___  _     ____  ___ ___ ___ 
- * |--   \ /   |__||__||-- |__ |__ | |__| /  \ |__|/__\   |___| |__ |-- |__|
- * |__   \/   |   | \|---   |   | |     /    \|  /    \| |  \   __| |__| \
- *      / \
+ *  888888 Yb  dP 88""Yb 88""Yb 888888 .dP"Y8 .dP"Y8 88  dP"Yb  88b 88 * 88""Yb
+88__    YbdP  88__dP 88__dP 88__   `Ybo." `Ybo." 88 dP   Yb 88Yb88 * 88__dP
+* 88""    dPYb  88"""  88"Yb  88""   o.`Y8b o.`Y8b 88 Yb   dP 88 Y88 * 88""" 
+* 888888 dP  Yb 88     88  Yb 888888 8bodP' 8bodP' 88  YbodP  88  Y8 88    
+*    db    88""Yb .dP"Y8 888888 88""Yb                                     
+*   dPYb   88__dP `Ybo." 88__   88__dP                                     
+*  dP__Yb  88"Yb  o.`Y8b 88""   88"Yb                                      * dP""""Yb 88  Yb 8bodP' 888888 88  Yb                                     
 */
 public class ExpressionParser {
 	private final String expression;
