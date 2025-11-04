@@ -1,3 +1,9 @@
+/*
+ *  ___  \   /  ___ ___ ___ ___ ___ . ___  ___  ___  _     ____  ___ ___ ___ 
+ * |--   \ /   |__||__||-- |__ |__ | |__| /  \ |__|/__\   |___| |__ |-- |__|
+ * |__   \/   |   | \|---   |   | |     /    \|  /    \| |  \   __| |__| \
+ *      / \
+*/
 public class ExpressionParser {
 	private final String expression;
 	private int pos = -1;
@@ -30,7 +36,7 @@ public class ExpressionParser {
 	public double parse() {
 		double x = parseExpression();
 		if (pos < expression.length())
-			throw new RuntimeException("Unexpected: " + ch);
+			throw new RuntimeException("Invalid char: " + ch);
 		lastResult = x;
 		return x;
 	}
@@ -49,8 +55,11 @@ public class ExpressionParser {
 		while (true) {
 			if (eat('*'))
 				x *= parseFactor();
-			else if (eat('/'))
-				x /= parseFactor();
+			else if (eat('/')) {
+        double divisor = parseFactor();
+        if (divisor == 0) throw new ArithmeticException("Division by zero");
+           x /= divisor;
+      }
 			else
 				return x;
 		}
@@ -58,9 +67,9 @@ public class ExpressionParser {
 
 	private double parseFactor() {
 		if (eat('+'))
-			return parseFactor();
+			return +parseFactor();
 		if (eat('-'))
-			return parseFactor();
+			return -parseFactor();
 
 		double x;
 		int startPos = this.pos;
@@ -80,7 +89,7 @@ public class ExpressionParser {
 			x = parseFactor();
 			x = applyFunction(func, x);
 		} else {
-			throw new RuntimeException("Unexpected: " + ch);
+			throw new RuntimeException("invalid char: " + ch);
 		}
 
 		if (eat('^'))
