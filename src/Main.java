@@ -25,7 +25,6 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-
 	static double lastResult = 0;
 
   // Memoization cache for --memo flag.
@@ -502,9 +501,9 @@ result.setLength(0); // Clear previous results
                         sqrt 4
                         (2 * 4) / (2 + 2)
                         cbrt (pi + 0)
-                        abs 998 + 5\33[0m
-                        e + 0
-	                """);
+                        abs 998 + 5
+                        e + 0\33[0m
+                        	                """);
 	                continue;
 
 	            default:
