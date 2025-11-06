@@ -93,5 +93,3 @@ java -jar jcalc-1.0.3.jar --parse
 
 > [!WARNING]
 > *"TESTED WITH JDK-26-EA, BEWARE OF JDK CONFLICTS."*
-
-- Status: currently developing a GUI in Kotlin as a seperate application but in the same repo.
