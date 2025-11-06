@@ -92,8 +92,12 @@ public class ExpressionParser {
 			while (ch >= 'a' && ch <= 'z')
 				nextChar();
 			String func = expression.substring(startPos, this.pos);
-			x = parseFactor();
-			x = applyFunction(func, x);
+			if (isConstant(func)) {
+				x = applyFunction(func, 0);
+			} else {
+				x = parseFactor();
+				x = applyFunction(func, x);
+			}
 		} else {
 			throw new RuntimeException("invalid char: " + ch);
 		}
@@ -101,6 +105,13 @@ public class ExpressionParser {
 		if (eat('^'))
 			x = Math.pow(x, parseFactor());
 		return x;
+	}
+
+	private boolean isConstant(String func) {
+		return switch (func) {
+			case "pi", "e", "ans" -> true;
+			default -> false;
+		};
 	}
 
 	private double applyFunction(String func, double x) {
@@ -115,7 +126,7 @@ public class ExpressionParser {
 		case "pi" -> Math.PI;
 		case "e" -> Math.E;
 		case "ans" -> lastResult;
-    case "cbrt" -> Math.cbrt(x);
+        case "cbrt" -> Math.cbrt(x);
 		default -> throw new RuntimeException("Unknown function: " + func);
 		};
 	}
