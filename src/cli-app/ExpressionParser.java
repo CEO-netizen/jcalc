@@ -121,7 +121,7 @@ public class ExpressionParser {
 		case "tan" -> Math.tan(Math.toRadians(x));
 		case "sqrt" -> Math.sqrt(x);
 		case "log" -> Math.log10(x);
-		case "ln" -> Math.log(x);
+		case "nl" -> Math.log(x);
 		case "abs" -> Math.abs(x);
 		case "pi" -> Math.PI;
 		case "e" -> Math.E;
