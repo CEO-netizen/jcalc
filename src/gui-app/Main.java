@@ -1,3 +1,16 @@
+/**
+*        __           __        ________  ______
+*       / /________ _/ /____   / ____/ / / /  _/
+*  __  / / ___/ __ `/ / ___/  / / __/ / / // /
+* / /_/ / /__/ /_/ / / /__   / /_/ / /_/ // /
+* \____/\___/\__,_/_/\___/   \____/\____/___/
+*
+*
+* ASCii art by: Zero
+* code by: Zero
+* title: Jcalc GUI
+*/
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -7,7 +20,7 @@ public class Main extends JFrame implements ActionListener {
     private double lastResult = 0.0;
 
     public Main() {
-        setTitle("Jcalc");
+        setTitle("Jcalc GUI");
         setSize(300, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());

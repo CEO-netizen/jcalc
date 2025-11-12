@@ -1,4 +1,4 @@
-/*
+/**
 * 
 *
 *  ___                             _            ___
@@ -10,6 +10,7 @@
 * ASCII art by: Zero
 * Licensed under: MIT
 */
+
 public class ExpressionParser {
 	private final String expression;
 	private int pos = -1;
@@ -126,7 +127,7 @@ public class ExpressionParser {
 		case "pi" -> Math.PI;
 		case "e" -> Math.E;
 		case "ans" -> lastResult;
-        case "cbrt" -> Math.cbrt(x);
+    case "cbrt" -> Math.cbrt(x);
 		default -> throw new RuntimeException("Unknown function: " + func);
 		};
 	}
