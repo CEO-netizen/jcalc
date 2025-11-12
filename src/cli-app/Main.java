@@ -15,7 +15,7 @@
 * \    \      ,'   \   \  / |  ,     .-./---`-'   \   \  /
 *  "---....--'      `----'   `--`---'              `----'
 *
-* author: Gage
+* author: Zero
 * license: MIT
 * creation year: 2025
 */

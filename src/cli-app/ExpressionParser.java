@@ -6,8 +6,8 @@
 * | _> \ \/| . \| '_>/ ._><_-<<_-<| |/ . \| ' ||  _/<_> || '_><_-</ ._>| '_>
 * |___>/\_\|  _/|_|  \___./__//__/|_|\___/|_|_||_|  <___||_|  /__/\___.|_|
 *          |_|
-* Library by: Gage
-* ASCII art by: Gage
+* Library by: Zero
+* ASCII art by: Zero
 * Licensed under: MIT
 */
 public class ExpressionParser {
