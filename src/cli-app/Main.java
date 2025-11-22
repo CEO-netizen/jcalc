@@ -192,7 +192,7 @@ switch (command) {
       System.out.println("No args required for help message.");
       System.exit(0);
     } else {
-      System.out.println("-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: \33[31m--fib/-f\33[0m [-r/--req -i/--iter --memo --modfib] ARG_AMOUNT: 1-2\n- CONVERSION: \33[31m--conv\33[0m [-hex/--hexadecimal --binary/-b] ARG_AMOUNT: 3\n- EXPRESSION PARSING: --parse ARG_AMOUNT: null\n- NATURAL LOGARITHM: -nl ARG_AMOUNT: 1");
+      System.out.println("-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mGage\33[0m)-\nADVANCED FUNCTIONS:\n- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n- CUBE ROOT: \33[31m-c/--cbrt\33[0m ARG_AMOUNT: 1\n- POWER/EXPONENTS: \33[31m-p/--pow\33[0m ARG_AMOUNT: 2\n- MODULUS: \33[31m-M/--mod\33[0m ARG_AMOUNT: 2\n- COSINE: \33[31m-C/--cos\33[0m ARG_AMOUNT: 1\n- TAN: \33[31m-t/--tan\33[0m ARG_AMOUNT: 1\n- LOGARITHM: \33[31m-l/--log\33[0m ARG_AMOUNT: 1\n- ATAN: \33[31m--atan/-T\33[0m ARG_AMOUNT: 2\n- FIBONACCI: \33[31m--fib/-f\33[0m [\33[31m-r/--req -i/--iter --memo --modfib\33[0m] ARG_AMOUNT: 1-2\n- CONVERSION: \33[31m--conv\33[0m [\33[31m-hex/--hexadecimal --binary/-b\33[0m] ARG_AMOUNT: 3\n- EXPRESSION PARSING: \33[31m--parse\33[0m ARG_AMOUNT: null\n- NATURAL LOGARITHM: \33[31m-nl\33[0m ARG_AMOUNT: 1\n- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3");
     }
   break;
 
@@ -394,8 +394,28 @@ switch (command) {
 
       System.out.println("Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
   break;
+
   default:
-  System.out.println("Unknown flag: " + command);
+    System.out.println("Unknown flag: " + command);
+  break;
+
+  case "-ae":
+  case "--addexact":
+    // Algorithm: addExact
+    if (args.length != 3) {
+      System.out.println("Argument amount not met\nUsage: -ae <number> <number>");
+    }
+    try {
+      int num1_ae = Integer.parseInt(args[1]);
+      int num2_ae = Integer.parseInt(args[2]);
+
+      System.out.println("Sum " + (Math.addExact(num1_ae, num2_ae)));
+    } catch (ArithmeticException e) {
+      System.out.println("Error: Overflow");
+      System.exit(0);
+    } catch (NumberFormatException e) {
+      System.out.println("Invalid number format for addExact.");
+    }
   break;
 } // end command switch
 }
