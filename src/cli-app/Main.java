@@ -469,7 +469,7 @@ public class Main {
           int num1_ae = Integer.parseInt(args[1]);
           int num2_ae = Integer.parseInt(args[2]);
 
-          System.out.println("Sum " + (Math.addExact(num1_ae, num2_ae)));
+          System.out.println(num1_ae + " plus " + num2_ae + " equals " + (Math.addExact(num1_ae, num2_ae)));
         } catch (ArithmeticException e) {
           System.out.println("Error: Overflow");
           System.exit(0);
@@ -589,7 +589,7 @@ public class Main {
                  \33[31mnl\33[0m        Used for natural logarithm problems
               Examples:
                 \33[31m2 + 3 * 4
-                ans / 2
+                 ans / 2
                  cos 778
                  sin 67
                  tan 72
