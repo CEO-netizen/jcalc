@@ -190,7 +190,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mGage\33[0m)-\n"
+              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "BASIC FUNCTIONS:\n"
                   + "- SUBTRACTION: \33[31m-s/--subtract\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLICATION: \33[31m-m/--multiply\33[0m ARG_AMOUNT: 2\n"
@@ -208,7 +208,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mGage\33[0m)-\n"
+              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "ADVANCED FUNCTIONS:\n"
                   + "- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n"
                   + "- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n"
