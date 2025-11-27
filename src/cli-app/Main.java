@@ -223,8 +223,8 @@ public class Main {
                   + " --modfib\33[0m] ARG_AMOUNT: 1-2\n"
                   + "- CONVERSION: \33[31m--conv\33[0m [\33[31m-hex/--hexadecimal"
                   + " --binary/-b\33[0m] ARG_AMOUNT: 3\n"
-                  + "- EXPRESSION PARSING: \33[31m--parse\33[0m ARG_AMOUNT: null\n"
-                  + "- NATURAL LOGARITHM: \33[31m-nl\33[0m ARG_AMOUNT: 1\n"
+                  + "- EXPRESSION PARSING: \33[31m--parse/-P\33[0m ARG_AMOUNT: null\n"
+                  + "- NATURAL LOGARITHM: \33[31m-nl/--naturallog\33[0m ARG_AMOUNT: 1\n"
                   + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3");
         }
         break;
@@ -440,10 +440,12 @@ public class Main {
         break;
 
       case "--parse":
+      case "-P":
         interactiveMode();
         break;
 
       case "-nl":
+      case "--naturallog":
         if (args.length != 2) {
           System.out.println("Argument amount not met.\nUsage: -nl <number>");
           System.exit(0);
