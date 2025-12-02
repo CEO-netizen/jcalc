@@ -95,10 +95,6 @@ subtractExact:
 ```bash
 java -jar jcalc-1.0.4.jar --subtractexact 10 5
 ```
-```
-```
-```
-```
 > [!IMPORTANT]
 > Generously licensed under MIT. See [LICENSE](/docs/LICENSE) for details.
 > Use `-h` for help and `-H` for advanced help
