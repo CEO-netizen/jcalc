@@ -22,70 +22,70 @@
 
 Addition:
 ```bash
-java -jar jcalc-1.0.3.jar --add 10 20
+java -jar jcalc-1.0.4.jar --add 10 20
 ```
 Subtraction:
 ```bash
-java -jar jcalc-1.0.3.jar --subtract 20 10
+java -jar jcalc-1.0.4.jar --subtract 20 10
 ```
 Multiplication:
 ```bash
-java -jar jcalc-1.0.3.jar --multiply 20 10
+java -jar jcalc-1.0.4.jar --multiply 20 10
 ```
 Division:
 ```bash
-java -jar jcalc-1.0.3.jar --divide 4 2
+java -jar jcalc-1.0.4.jar --divide 4 2
 ```
 Square root:
 ```bash
-java -jar jcalc-1.0.3.jar --sqrt 5
+java -jar jcalc-1.0.4.jar --sqrt 5
 ```
 Cube root:
 ```bash
-java -jar jcalc-1.0.3.jar --cbrt 5
+java -jar jcalc-1.0.4.jar --cbrt 5
 ```
 Sine:
 ```bash
-java -jar jcalc-1.0.3.jar --sin 10
+java -jar jcalc-1.0.4.jar --sin 10
 ```
 Power/Exponents:
 ```bash
-java -jar jcalc-1.0.3.jar --pow 12 16
+java -jar jcalc-1.0.4.jar --pow 12 16
 ```
 Modulus:
 ```bash
-java -jar jcalc-1.0.3.jar --mod 16 12
+java -jar jcalc-1.0.4.jar --mod 16 12
 ```
 Cosine:
 ```bash
-java -jar jcalc-1.0.3.jar --cos 66 
+java -jar jcalc-1.0.4.jar --cos 66 
 ```
 Tan:
 ```bash
-java -jar jcalc-1.0.3.jar --tan 78
+java -jar jcalc-1.0.4.jar --tan 78
 ```
 Logarithm:
 ```bash
-java -jar jcalc-1.0.3.jar --log 67
+java -jar jcalc-1.0.4.jar --log 67
 ```
 Fibonacci algorithms:
 ```bash
-java -jar jcalc-1.0.3.jar --fib --req 62
+java -jar jcalc-1.0.4.jar --fib --req 62
 ```
 ```bash
-java -jar jcalc-1.0.3.jar --fib --iter 63
+java -jar jcalc-1.0.4.jar --fib --iter 63
 ```
 ```bash
-java -jar jcalc-1.0.3.jar --fib --memo 10
+java -jar jcalc-1.0.4.jar --fib --memo 10
 ```
 Conversion:
 ```bash
-java -jar jcalc-1.0.3.jar --conv --binary 1101 1
-java -jar jcalc-1.0.3.jar --conv --hexadecimal 1E25 1
+java -jar jcalc-1.0.4.jar --conv --binary 1101 1
+java -jar jcalc-1.0.4.jar --conv --hexadecimal 1E25 1
 ```
 ExpressionParser:
 ```bash
-java -jar jcalc-1.0.3.jar --parse
+java -jar jcalc-1.0.4.jar --parse
 ```
 addExact:
 ```bash
