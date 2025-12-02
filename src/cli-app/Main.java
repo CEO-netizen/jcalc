@@ -190,7 +190,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mZero\33[0m)-\n"
+              "-(\33[31mJcalc-v1.0.4\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "BASIC FUNCTIONS:\n"
                   + "- SUBTRACTION: \33[31m-s/--subtract\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLICATION: \33[31m-m/--multiply\33[0m ARG_AMOUNT: 2\n"
@@ -208,7 +208,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.3\33[0m)-by-(\33[31mZero\33[0m)-\n"
+              "-(\33[31mJcalc-v1.0.4\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "ADVANCED FUNCTIONS:\n"
                   + "- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n"
                   + "- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n"
@@ -225,7 +225,8 @@ public class Main {
                   + " --binary/-b\33[0m] ARG_AMOUNT: 3\n"
                   + "- EXPRESSION PARSING: \33[31m--parse/-P\33[0m ARG_AMOUNT: null\n"
                   + "- NATURAL LOGARITHM: \33[31m-nl/--naturallog\33[0m ARG_AMOUNT: 1\n"
-                  + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3");
+                  + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3\n"
+                  + "- SUBTRACTEXACT \33[31m-se/--aubtractexact\33[0m ARG_AMOUNT: 3");
         }
         break;
 
@@ -466,19 +467,42 @@ public class Main {
         // Algorithm: addExact
         if (args.length != 3) {
           System.out.println("Argument amount not met\nUsage: -ae <number> <number>");
-        }
-        try {
-          int num1_ae = Integer.parseInt(args[1]);
-          int num2_ae = Integer.parseInt(args[2]);
-
-          System.out.println(num1_ae + " plus " + num2_ae + " equals " + (Math.addExact(num1_ae, num2_ae)));
-        } catch (ArithmeticException e) {
-          System.out.println("Error: Overflow");
           System.exit(0);
-        } catch (NumberFormatException e) {
-          System.out.println("Invalid number format for addExact.");
+        } else {
+           try {
+            int num1_ae = Integer.parseInt(args[1]);
+            int num2_ae = Integer.parseInt(args[2]);
+
+            System.out.println(num1_ae + " plus " + num2_ae + " equals " + (Math.addExact(num1_ae, num2_ae)));
+          } catch (ArithmeticException e) {
+            System.out.println("Error: Overflow");
+            System.exit(0);
+          } catch (NumberFormatException e) {
+            System.out.println("Invalid number format for addExact.");
+            System.exit(0);
+          }
         }
         break;
+
+      case "-se":
+      case "--subtractexact":
+        if (args.length != 3) {
+          System.out.println("Argument amount not met\nUsage: -se <number> <number>");
+          System.exit(0);
+        } else {
+          try {
+            int num1_se = Integer.parseInt(args[1]);
+            int num2_se = Integer.parseInt(args[2]);
+
+            System.out.println(num1_se + " plus " + num2_se + " equals " + (Math.subtractExact(num1_se, num2_se)));
+          } catch (ArithmeticException e) {
+            System.out.println("Error: Overflow");
+            System.exit(0);
+          } catch (NumberFormatException e) {
+            System.out.println("Invalid number format for subtractExact");
+          }
+        }
+      break;
     } // end command switch
   }
 

@@ -1,5 +1,5 @@
 # JCalc
-![Release](https://img.shields.io/badge/release-1.0.1-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
+![Release](https://img.shields.io/badge/release-1.0.4-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
 
  Features: 
 - Addition
@@ -18,6 +18,7 @@
 - Fibonacci algorithms
 - Conversion
 - Custom expression parser
+- Exact expressions (Add and Subtract)
 
 Addition:
 ```bash
@@ -85,6 +86,18 @@ java -jar jcalc-1.0.3.jar --conv --hexadecimal 1E25 1
 ExpressionParser:
 ```bash
 java -jar jcalc-1.0.3.jar --parse
+```
+addExact:
+```bash
+java -jar jcalc-1.0.4.jar --addexact 30 20
+```
+subtractExact:
+```bash
+java -jar jcalc-1.0.4.jar --subtractexact 10 5
+```
+```
+```
+```
 ```
 > [!IMPORTANT]
 > Generously licensed under MIT. See [LICENSE](/docs/LICENSE) for details.
