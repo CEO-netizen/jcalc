@@ -2,7 +2,7 @@
 ![Release](https://img.shields.io/badge/release-1.0.4-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
 
  Features: 
-- Additionobfs4 [2a0a:4587:2011::57]:13630 A3D55AA6178E80AE486B6DAEAFBA5AB79B29B399 cert=p9L6+25s8bnfkye1ZxFeAE4mAGY7DH4Gaj7dxngIIzP9BtqrHHwZXdjMK0RVIQ34C7aqZw iat-mode=2
+- Addition
 - Subtraction
 - Multiplication
 - Division
