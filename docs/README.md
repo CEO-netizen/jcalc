@@ -2,7 +2,7 @@
 ![Release](https://img.shields.io/badge/release-1.0.4-blue) ![Java](https://img.shields.io/badge/Java-OpenJDK-brightgreen?logo=java&logoColor=white)
 
  Features: 
-- Addition
+- Additionobfs4 [2a0a:4587:2011::57]:13630 A3D55AA6178E80AE486B6DAEAFBA5AB79B29B399 cert=p9L6+25s8bnfkye1ZxFeAE4mAGY7DH4Gaj7dxngIIzP9BtqrHHwZXdjMK0RVIQ34C7aqZw iat-mode=2
 - Subtraction
 - Multiplication
 - Division
@@ -95,6 +95,9 @@ subtractExact:
 ```bash
 java -jar jcalc-1.0.4.jar --subtractexact 10 5
 ```
+
+P.S I would do screenshots but I use a tilling WM on Wayland compositing
+
 > [!IMPORTANT]
 > Generously licensed under MIT. See [LICENSE](/docs/LICENSE) for details.
 > Use `-h` for help and `-H` for advanced help
