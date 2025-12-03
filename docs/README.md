@@ -106,5 +106,6 @@ java -jar jcalc-1.0.4.jar --subtractexact 10 5
 FUNDING DISCLAIMER: Funding is not required for usage of this software nor integration of this software's source code.
 > But funding is appericiated. You can fund my work with Monero.
 > Payment address: 47evNLkn4yGXxZpBrqrfvYdxk3kvwyFea317REB3bQkv2Yfoju2f38h7uD7ScifQn8SV7sim8PrpcMwRHxnKbiim4eKjPYC
-> OR scan this QR code under this message
+
+
 ![Monero](/docs/monero.png)
