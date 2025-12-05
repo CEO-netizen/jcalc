@@ -108,7 +108,4 @@ P.S I would do screenshots but I use a tilling WM on Wayland compositing
 
 FUNDING DISCLAIMER: Funding is not required for usage of this software nor integration of this software's source code.
 > But funding is appericiated. You can fund my work with Monero.
-> Payment address: 47evNLkn4yGXxZpBrqrfvYdxk3kvwyFea317REB3bQkv2Yfoju2f38h7uD7ScifQn8SV7sim8PrpcMwRHxnKbiim4eKjPYC
-
-
-![Monero](/docs/monero.png)
+> Payment address: 84BZFgYhc1Dbm4gb9Ghrg3aEiF75tx2s3SfUh3AJoGf8iVALyevwed1cPRoCKqGfqNVcceyEBUwGN7PFsEgo5nvZBcTLJEH
