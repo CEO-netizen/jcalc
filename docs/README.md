@@ -95,6 +95,12 @@ subtractExact:
 ```bash
 java -jar jcalc-1.0.4.jar --subtractexact 10 5
 ```
+MultiplyExact:
+```bash
+java -jar jcalc-1.0.4.jar --multiplyexact 10 3
+```
+```
+```
 
 P.S I would do screenshots but I use a tilling WM on Wayland compositing
 
