@@ -6,7 +6,8 @@
  * / /_/ / /__/ /_/ / / /__   / /_/ / /_/ // /
  * \____/\___/\__,_/_/\___/   \____/\____/___/
  * ASCii art by: Zero
- * code by: Zero title: Jcalc GUI
+ * code by: Zero
+ * title: Jcalc GUI
  */
 import java.awt.*;
 import java.awt.event.*;

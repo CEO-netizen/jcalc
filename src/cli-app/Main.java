@@ -226,7 +226,8 @@ public class Main {
                   + "- EXPRESSION PARSING: \33[31m--parse/-P\33[0m ARG_AMOUNT: null\n"
                   + "- NATURAL LOGARITHM: \33[31m-nl/--naturallog\33[0m ARG_AMOUNT: 1\n"
                   + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3\n"
-                  + "- SUBTRACTEXACT \33[31m-se/--aubtractexact\33[0m ARG_AMOUNT: 3");
+                  + "- SUBTRACTEXACT \33[31m-se/--aubtractexact\33[0m ARG_AMOUNT: 2\n"
+                  + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2");
         }
         break;
 
@@ -500,6 +501,22 @@ public class Main {
             System.exit(0);
           } catch (NumberFormatException e) {
             System.out.println("Invalid number format for subtractExact");
+          }
+        }
+      break;
+      
+      case "-me":
+      case "--multiplyexact":
+        if (args.length != 3) {
+          System.out.println("Argument amount not met\nUsage: -me <number> <number>");
+          System.exit(0);
+        } else {
+          try {
+            int num1_me = Integer.parseInt(args[1]);
+            int num2_me = Integer.parseInt(args[2]);
+
+
+            System.out.println(num1_me + " times " + num2_me + " equals " + (Math.MultiplyExact(num1_me, num2_me)));
           }
         }
       break;
