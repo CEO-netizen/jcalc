@@ -470,7 +470,7 @@ public class Main {
             System.exit(0);
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
-            System.exit(0)
+            System.exit(0);
           }
         }
         break;
