@@ -114,4 +114,4 @@ P.S I would do screenshots but I use a tilling WM on Wayland compositing
 
 FUNDING DISCLAIMER: Funding is not required for usage of this software nor integration of this software's source code.
 > But funding is appericiated. You can fund my work with Monero.
-> Payment address: 84BZFgYhc1Dbm4gb9Ghrg3aEiF75tx2s3SfUh3AJoGf8iVALyevwed1cPRoCKqGfqNVcceyEBUwGN7PFsEgo5nvZBcTLJEH
+> E-Mail me for my funding address, because I do not want web scrapers scanning this page and finding my payment info.

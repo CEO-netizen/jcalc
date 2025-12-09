@@ -358,24 +358,32 @@ public class Main {
                       + "Types: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to"
                       + " octal 4 = convert to ASCII");
             } else {
-              String num1_bin_conv = args[2];
-              int type_bin_conv = Integer.parseInt(args[3]);
-              int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
+              try {
+                String num1_bin_conv = args[2];
+                int type_bin_conv = Integer.parseInt(args[3]);
+                int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
 
-              if (type_bin_conv == 1) {
-                System.out.println(num1_bin_conv + " in decimal is " + dec_bin_conv);
-              } else if (type_bin_conv == 2) {
-                String hex_bin_conv = Integer.toHexString(dec_bin_conv);
+                if (type_bin_conv == 1) {
+                  System.out.println(num1_bin_conv + " in decimal is " + dec_bin_conv);
+                } else if (type_bin_conv == 2) {
+                  String hex_bin_conv = Integer.toHexString(dec_bin_conv);
 
-                System.out.println(
+                  System.out.println(
                     "Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
-              } else if (type_bin_conv == 3) {
-                String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
+                } else if (type_bin_conv == 3) {
+                  String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
 
-                System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
-              } else if (type_bin_conv == 4) {
-                System.out.println(
-                    "Binary: " + num1_bin_conv + " -> ASCII: " + (binaryToText(num1_bin_conv)));
+                  System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
+                } else if (type_bin_conv == 4) {
+                  System.out.println(
+                      "Binary: " + num1_bin_conv + " -> ASCII: " + (binaryToText(num1_bin_conv)));
+              
+                }
+              } catch (NumberFormatException e) {
+                System.out.println("Error: number format exception");
+                System.exit(0);
+              } catch (ArithmeticException e) {
+                System.out.println("Error: overflow");
               }
             }
             break;
@@ -398,7 +406,7 @@ public class Main {
                 System.out.println(
                     "hexadecimal: " + num1_hex_conv + " -> Decimal: " + dec_hex_conv);
               } catch (NumberFormatException e) {
-                System.out.println("Error: invalid hexadecimal number.");
+                System.out.println("Error: number format exception");
 
                 System.exit(0);
               }
@@ -410,7 +418,7 @@ public class Main {
 
                 System.out.println("hexadecimal: " + num1_hex_conv + " -> Binary: " + bin_hex_conv);
               } catch (NumberFormatException e) {
-                System.out.println("Error: invalid hexadecimal number");
+                System.out.println("Error: number format exception");
                 System.exit(0);
               }
             } else if (type_hex_conv == 3) {
@@ -430,7 +438,7 @@ public class Main {
 
                 System.out.println("hexadecimal: " + num1_hex_conv + " ASCII: " + ascii_hex_conv);
               } catch (NumberFormatException e) {
-                System.out.println("Error: invalid hexadecimal number");
+                System.out.println("Error: number format exception");
                 System.exit(0);
               }
             }
@@ -451,17 +459,25 @@ public class Main {
         if (args.length != 2) {
           System.out.println("Argument amount not met.\nUsage: -nl <number>");
           System.exit(0);
-        }
-
+        } else {
+          try {
         int num_natural_log = Integer.parseInt(args[1]);
 
         System.out.println(
             "Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
+          } catch (NumberFormatException e) {
+            System.println("Error: number format exception");
+            System.exit(0);
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
+            System.exit(0)
+          }
+        }
         break;
 
       default:
         System.out.println("Unknown flag: " + command);
-        break;
+      break;
 
       case "-ae":
       case "--addexact":
@@ -479,7 +495,7 @@ public class Main {
             System.out.println("Error: Overflow");
             System.exit(0);
           } catch (NumberFormatException e) {
-            System.out.println("Invalid number format for addExact.");
+            System.out.println("Error: number format exception");
             System.exit(0);
           }
         }
@@ -517,6 +533,34 @@ public class Main {
 
 
             System.out.println(num1_me + " times " + num2_me + " equals " + (Math.MultiplyExact(num1_me, num2_me)));
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
+            System.exit(0);
+          } catch (NumberFormatException e) {
+            System.out.println("Error: number format exception");
+            System.exit(0);
+          }
+        }
+      break;
+
+      case "-de":
+      case "--divideexact":
+        if (args.length != 3) {
+          System.out.println("Argument amount not met.\nUsage: -de <number> <number>");
+          System.exit(0);
+        } else {
+          try {
+            int num1_de = Integer.parseInt(args[1]);
+            int num2_de = Integer.parseInt(args[2]);
+
+
+            System.out.println(num1_de + " divided by " + num2_de + " equals " + (Math.divideExact(num1_de, num2_de)));
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
+            System.exit(0);
+          } catch (NumberFormatException e) {
+            System.out.println("Error: number format Exception");
+            System.exit(0);
           }
         }
       break;
