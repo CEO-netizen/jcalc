@@ -226,7 +226,7 @@ public class Main {
                   + "- EXPRESSION PARSING: \33[31m--parse/-P\33[0m ARG_AMOUNT: null\n"
                   + "- NATURAL LOGARITHM: \33[31m-nl/--naturallog\33[0m ARG_AMOUNT: 1\n"
                   + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3\n"
-                  + "- SUBTRACTEXACT \33[31m-se/--aubtractexact\33[0m ARG_AMOUNT: 2\n"
+                  + "- SUBTRACTEXACT \33[31m-se/--subtractexact\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2");
         }
         break;
