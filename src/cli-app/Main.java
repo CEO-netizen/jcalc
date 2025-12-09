@@ -466,7 +466,7 @@ public class Main {
         System.out.println(
             "Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
           } catch (NumberFormatException e) {
-            System.println("Error: number format exception");
+            System.out.println("Error: number format exception");
             System.exit(0);
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
@@ -532,7 +532,7 @@ public class Main {
             int num2_me = Integer.parseInt(args[2]);
 
 
-            System.out.println(num1_me + " times " + num2_me + " equals " + (Math.MultiplyExact(num1_me, num2_me)));
+            System.out.println(num1_me + " times " + num2_me + " equals " + (Math.multiplyExact(num1_me, num2_me)));
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
             System.exit(0);
