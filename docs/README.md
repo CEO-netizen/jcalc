@@ -101,7 +101,14 @@ java -jar jcalc-1.0.4.jar --multiplyexact 10 3
 ```
 ```
 ```
-
+Rounding:
+```bash
+java -jar jcalc-1.0.4.jar --round 512.5
+```
+divideExact:
+```bash
+java -jar jcalc-1.0.4.jar --divideexact 10 2
+```
 P.S I would do screenshots but I use a tilling WM on Wayland compositing
 
 > [!IMPORTANT]

@@ -227,7 +227,9 @@ public class Main {
                   + "- NATURAL LOGARITHM: \33[31m-nl/--naturallog\33[0m ARG_AMOUNT: 1\n"
                   + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3\n"
                   + "- SUBTRACTEXACT \33[31m-se/--subtractexact\33[0m ARG_AMOUNT: 2\n"
-                  + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2");
+                  + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2\n"
+                  + "- DIVIDEEXACT \33[31m-de/--divideexact\33[0m ARG_AMOUNT: 2"
+                  + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1");
         }
         break;
 
@@ -561,6 +563,25 @@ public class Main {
           } catch (NumberFormatException e) {
             System.out.println("Error: number format Exception");
             System.exit(0);
+          }
+        }
+      break;
+
+      case "-r":
+      case "--round":
+        if (args.length != 2) {
+          System.out.println("Argument amount not met.\nUsage: -r <number>");
+          System.exit(0);
+        } else {
+          try {
+            float num_r = Float.parseFloat(args[1]);
+
+            System.out.println("The answer is: " + (Math.round(num_r)));
+          } catch (NumberFormatException e) {
+            System.out.println("Error: number format exception");
+            System.exit(0);
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
           }
         }
       break;
