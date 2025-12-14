@@ -372,7 +372,7 @@ public class Main {
                   String hex_bin_conv = Integer.toHexString(dec_bin_conv);
 
                   System.out.println(
-                    "Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
+                      "Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
                 } else if (type_bin_conv == 3) {
                   String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
 
@@ -380,7 +380,7 @@ public class Main {
                 } else if (type_bin_conv == 4) {
                   System.out.println(
                       "Binary: " + num1_bin_conv + " -> ASCII: " + (binaryToText(num1_bin_conv)));
-              
+
                 }
               } catch (NumberFormatException e) {
                 System.out.println("Error: number format exception");
@@ -464,10 +464,10 @@ public class Main {
           System.exit(0);
         } else {
           try {
-        int num_natural_log = Integer.parseInt(args[1]);
+            int num_natural_log = Integer.parseInt(args[1]);
 
-        System.out.println(
-            "Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
+            System.out.println(
+                "Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
           } catch (NumberFormatException e) {
             System.out.println("Error: number format exception");
             System.exit(0);
@@ -480,7 +480,7 @@ public class Main {
 
       default:
         System.out.println("Unknown flag: " + command);
-      break;
+        break;
 
       case "-ae":
       case "--addexact":
@@ -489,7 +489,7 @@ public class Main {
           System.out.println("Argument amount not met\nUsage: -ae <number> <number>");
           System.exit(0);
         } else {
-           try {
+          try {
             int num1_ae = Integer.parseInt(args[1]);
             int num2_ae = Integer.parseInt(args[2]);
 
@@ -522,8 +522,8 @@ public class Main {
             System.out.println("Invalid number format for subtractExact");
           }
         }
-      break;
-      
+        break;
+
       case "-me":
       case "--multiplyexact":
         if (args.length != 3) {
@@ -534,7 +534,6 @@ public class Main {
             int num1_me = Integer.parseInt(args[1]);
             int num2_me = Integer.parseInt(args[2]);
 
-
             System.out.println(num1_me + " times " + num2_me + " equals " + (Math.multiplyExact(num1_me, num2_me)));
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
@@ -544,7 +543,7 @@ public class Main {
             System.exit(0);
           }
         }
-      break;
+        break;
 
       case "-de":
       case "--divideexact":
@@ -556,7 +555,6 @@ public class Main {
             int num1_de = Integer.parseInt(args[1]);
             int num2_de = Integer.parseInt(args[2]);
 
-
             System.out.println(num1_de + " divided by " + num2_de + " equals " + (Math.divideExact(num1_de, num2_de)));
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
@@ -566,7 +564,7 @@ public class Main {
             System.exit(0);
           }
         }
-      break;
+        break;
 
       case "-r":
       case "--round":
@@ -585,8 +583,8 @@ public class Main {
             System.out.println("Error: overflow");
           }
         }
-      break;
-      
+        break;
+
       case "-sh":
       case "--sinh":
         if (args.length != 2) {
@@ -601,12 +599,13 @@ public class Main {
             System.out.println("Error: number format exception");
           }
         }
-      break;
+        break;
     } // end command switch
   }
 
   public static long fibIterative(int n) {
-    if (n <= 1) return n;
+    if (n <= 1)
+      return n;
 
     long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
     for (int i = 2; i <= n; i++) {
@@ -618,8 +617,10 @@ public class Main {
   }
 
   public static long fibMemo(int n) {
-    if (n <= 1) return n;
-    if (fibCache.containsKey(n)) return fibCache.get(n);
+    if (n <= 1)
+      return n;
+    if (fibCache.containsKey(n))
+      return fibCache.get(n);
 
     long result = fibMemo(n - 1) + fibMemo(n - 2);
     fibCache.put(n, result);
@@ -627,8 +628,10 @@ public class Main {
   }
 
   public static long modFib(int n, int m) {
-    if (n == 0) return 0;
-    if (n == 1) return 1 % m;
+    if (n == 0)
+      return 0;
+    if (n == 1)
+      return 1 % m;
 
     long a = 0;
     long b = 1;
@@ -643,7 +646,8 @@ public class Main {
   }
 
   public static long fibRecursive(int n) {
-    if (n <= 1) return n;
+    if (n <= 1)
+      return n;
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
 
@@ -674,7 +678,7 @@ public class Main {
   }
 
   public static void interactiveMode() {
-    Scanner sc = new Scanner(System.in);
+    Scanner Sc = new Scanner(System.in);
     double lastResult = 0.0;
 
     System.out.println("Welcome to \33[1;31mJCalc\33[0m Interactive Mode!");
@@ -685,45 +689,47 @@ public class Main {
 
     while (true) {
       System.out.print("Jcalc> ");
-      String input = sc.nextLine().trim();
+      String input = Sc.nextLine().trim();
 
-      if (input.isEmpty()) continue;
+      if (input.isEmpty())
+        continue;
 
       switch (input.toLowerCase()) {
         case "exit":
         case "quit":
           System.out.println("Exiting...");
+          Sc.close();
           return;
 
         case "help":
           System.out.println(
               """
-              Commands:
-                \33[31mhelp\33[0m      Show this message
-                \33[31mexit\33[0m      Quit JCalc
-                 \33[31mquit\33[0m      Same as exit
-                \33[31mans\33[0m       Use last result in an expression
-                 \33[31mcos\33[0m       Calculate the cosine of an angle
-                 \33[31msin\33[0m       Find the sine of an angle
-                 \33[31mabs\33[0m       Find the absolute value of an equation
-                 \33[31msqrt\33[0m      Find the square root of a number
-                 \33[31mcbrt\33[0m      Find the cube root of a number
-                 \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
-                 \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
-                 \33[31mlog\33[0m       Used in logarithm problems
-                 \33[31mnl\33[0m        Used for natural logarithm problems
-              Examples:
-                \33[31m2 + 3 * 4
-                 ans / 2
-                 cos 778
-                 sin 67
-                 tan 72
-                 sqrt 4
-                 (2 * 4) / (2 + 2)
-                 cbrt (pi + 0)
-                 abs 998 + 5
-                 e + 0\33[0m
-              """);
+                  Commands:
+                    \33[31mhelp\33[0m      Show this message
+                    \33[31mexit\33[0m      Quit JCalc
+                     \33[31mquit\33[0m      Same as exit
+                     \33[31mans\33[0m       Use last result in an expression
+                     \33[31mcos\33[0m       Calculate the cosine of an angle
+                     \33[31msin\33[0m       Find the sine of an angle
+                     \33[31mabs\33[0m       Find the absolute value of an equation
+                     \33[31msqrt\33[0m      Find the square root of a number
+                     \33[31mcbrt\33[0m      Find the cube root of a number
+                     \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
+                     \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
+                     \33[31mlog\33[0m       Used in logarithm problems
+                     \33[31mnl\33[0m        Used for natural logarithm problems
+                  Examples:
+                    \33[31m2 + 3 * 4
+                     ans / 2
+                     cos 778
+                     sin 67
+                     tan 72
+                     sqrt 4
+                     (2 * 4) / (2 + 2)
+                     cbrt (pi + 0)
+                     abs 998 + 5
+                     e + 0\33[0m
+                  """);
           continue;
 
         default:
