@@ -115,6 +115,7 @@ public class ExpressionParser {
       case "e" -> Math.E;
       case "ans" -> lastResult;
       case "cbrt" -> Math.cbrt(x);
+      case "square" -> x * x;
       default -> throw new RuntimeException("Unknown function: " + func);
     };
   }

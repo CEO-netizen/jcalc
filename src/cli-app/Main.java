@@ -229,7 +229,8 @@ public class Main {
                   + "- SUBTRACTEXACT \33[31m-se/--subtractexact\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2\n"
                   + "- DIVIDEEXACT \33[31m-de/--divideexact\33[0m ARG_AMOUNT: 2"
-                  + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1");
+                  + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1\n"
+                  + "- SINH \33[31m-sh/--sinh\33[0m ARG_AMOUNT: 1");
         }
         break;
 
@@ -582,6 +583,22 @@ public class Main {
             System.exit(0);
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
+          }
+        }
+      break;
+      
+      case "-sh":
+      case "--sinh":
+        if (args.length != 2) {
+          System.out.println("Argument amount not met.\nUsage: -sh <number>");
+          System.exit(0);
+        } else {
+          try {
+            int num_sinh = Integer.parseInt(args[1]);
+
+            System.out.println("The answer is: " + (Math.sinh(Math.toRadians(num_sinh))));
+          } catch (NumberFormatException e) {
+            System.out.println("Error: number format exception");
           }
         }
       break;
