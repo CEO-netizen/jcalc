@@ -230,7 +230,8 @@ public class Main {
                   + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2\n"
                   + "- DIVIDEEXACT \33[31m-de/--divideexact\33[0m ARG_AMOUNT: 2"
                   + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1\n"
-                  + "- SINH \33[31m-sh/--sinh\33[0m ARG_AMOUNT: 1");
+                  + "- SINH \33[31m-sh/--sinh\33[0m ARG_AMOUNT: 1"
+                  + "- MIN \33[31--min\33[0m ARG_AMOUNT: 2");
         }
         break;
 
@@ -597,9 +598,33 @@ public class Main {
             System.out.println("The answer is: " + (Math.sinh(Math.toRadians(num_sinh))));
           } catch (NumberFormatException e) {
             System.out.println("Error: number format exception");
+            System.exit(0);
+          } catch (ArithmeticException e) {
+        	  System.out.println("Error: overflow");
+        	  System.exit(0);
           }
         }
         break;
+        
+      case "--min":
+    	 if (args.length != 3) {
+    		 System.out.println("Argument amount not met.\nUsage: -M <number> <number>");
+    		 System.exit(0);
+    	 } else {
+    		 try {
+    			 float num1_min = Float.parseFloat(args[1]);
+    			 float num2_min = Float.parseFloat(args[2]);
+    			 
+    			 System.out.println("The smaller of: " + num1_min + " and " + num2_min + " is: " + (Math.min(num1_min, num2_min)));
+    		 } catch (NumberFormatException e) {
+    			 System.out.println("Please enter valid numbers");
+    			 System.exit(0);
+    		 } catch (ArithmeticException e) {
+    			 System.out.println("Error: overflow");
+    			 System.exit(0);
+    		 }
+    	 }
+      break;
     } // end command switch
   }
 
