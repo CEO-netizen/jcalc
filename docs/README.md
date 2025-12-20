@@ -25,6 +25,7 @@ Addition:
 ```bash
 java -jar jcalc-1.0.4.jar --add 10 20
 ```
+
 Subtraction:
 ```bash
 java -jar jcalc-1.0.4.jar --subtract 20 10
@@ -100,6 +101,7 @@ java -jar jcalc-1.0.4.jar --conv --time --seconds 1 3600
 ```
 
 Supported time units: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years, decades, centuries, millennia. Use --conv --time --help for detailed usage.
+
 ExpressionParser:
 ```bash
 java -jar jcalc-1.0.4.jar --parse
@@ -136,18 +138,6 @@ P.S I would do screenshots but I use a tilling WM on Wayland compositing
 > [!WARNING]
 > *"TESTED WITH JDK-26-EA, BEWARE OF JDK CONFLICTS."*
 
-FUNDING DISCLAIMER: Funding is no
-    .-----.      zero@gentoo
-  .`    _  `.    OS:        Gentoo Linux
-  `.   (_)   `.  KERNEL:    Linux 6.12.58-gentoo-dist
-    `.        /  UPTIME:    6 hours, 2 minutes
-   .`       .`   PACKAGES:  1051
-  /       .`     SHELL:     zsh
-  \____.-`       DE:        GNOME
-
-❯ 
-❯ cd /home/zero/jcalc && javac src/*.java
-
-t required for usage of this software nor integration of this software's source code.
+FUNDING DISCLAIMER: Funding is not required for usage of this software nor integration of this software's source code.
 > But funding is appericiated. You can fund my work with Monero.
 > E-Mail me for my funding address, because I do not want web scrapers scanning this page and finding my payment info.
