@@ -1,3 +1,4 @@
+
 /*
  *
  *         ,---._
@@ -475,13 +476,98 @@ public class Main {
           case "--time":
             // Time unit conversions using the Time utility class
             switch (args[2]) {
+              case "-ms":
+              case "--milliseconds":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --milliseconds <choice> <value>\n"
+                          + "Choices: 1 = to microseconds, 2 = to seconds, 3 = to minutes");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double milliseconds = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToMicroseconds(milliseconds) + " microseconds.");
+                  } else if (choice == 2) {
+                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToSeconds(milliseconds) + " seconds.");
+                  } else if (choice == 3) {
+                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToSeconds(milliseconds) / 60.0 + " minutes.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-3.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-μs":
+              case "--microseconds":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --microseconds <choice> <value>\n"
+                          + "Choices: 1 = to nanoseconds, 2 = to milliseconds, 3 = to seconds");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double microseconds = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToNanoseconds(microseconds) + " nanoseconds.");
+                  } else if (choice == 2) {
+                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToMilliseconds(microseconds) + " milliseconds.");
+                  } else if (choice == 3) {
+                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToMilliseconds(microseconds) / 1000.0 + " seconds.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-3.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-ns":
+              case "--nanoseconds":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --nanoseconds <choice> <value>\n"
+                          + "Choices: 1 = to microseconds, 2 = to seconds");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double nanoseconds = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(nanoseconds + " nanoseconds = " + Time.nanosecondsToMicroseconds(nanoseconds) + " microseconds.");
+                  } else if (choice == 2) {
+                    System.out.println(nanoseconds + " nanoseconds = " + Time.nanosecondsToMicroseconds(nanoseconds) / 1000000.0 + " seconds.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
               case "-s":
               case "--seconds":
                 if (args.length != 5) {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --time --seconds <choice> <value>\n"
-                          + "Choices: 1 = to minutes, 2 = to milliseconds, 3 = to hours");
+                          + "Choices: 1 = to minutes, 2 = to milliseconds, 3 = to hours, 4 = to days");
                   System.exit(0);
                 }
                 try {
@@ -494,8 +580,39 @@ public class Main {
                     System.out.println(seconds + " seconds = " + Time.secondsToMilliseconds(seconds) + " milliseconds.");
                   } else if (choice == 3) {
                     System.out.println(seconds + " seconds = " + Time.secondsToHours(seconds) + " hours.");
+                  } else if (choice == 4) {
+                    System.out.println(seconds + " seconds = " + Time.secondsToDays(seconds) + " days.");
                   } else {
-                    System.out.println("Invalid choice. Use 1-3.");
+                    System.out.println("Invalid choice. Use 1-4.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+              case "-min":
+              case "--minutes":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --minutes <choice> <value>\n"
+                          + "Choices: 1 = to seconds, 2 = to hours, 3 = to days, 4 = to milliseconds");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double minutes = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(minutes + " minutes = " + Time.minutesToSeconds(minutes) + " seconds.");
+                  } else if (choice == 2) {
+                    System.out.println(minutes + " minutes = " + Time.minutesToHours(minutes) + " hours.");
+                  } else if (choice == 3) {
+                    System.out.println(minutes + " minutes = " + Time.minutesToHours(minutes) / 24.0 + " days.");
+                  } else if (choice == 4) {
+                    System.out.println(minutes + " minutes = " + Time.minutesToSeconds(minutes) * 1000.0 + " milliseconds.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-4.");
                     System.exit(0);
                   }
                 } catch (NumberFormatException e) {
@@ -503,8 +620,240 @@ public class Main {
                   System.exit(0);
                 }
                 break;
+
+              case "-h":
+              case "--hours":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --hours <choice> <value>\n"
+                          + "Choices: 1 = to seconds, 2 = to minutes, 3 = to days, 4 = to weeks");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double hours = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(hours + " hours = " + Time.hoursToSeconds(hours) + " seconds.");
+                  } else if (choice == 2) {
+                    System.out.println(hours + " hours = " + Time.hoursToMinutes(hours) + " minutes.");
+                  } else if (choice == 3) {
+                    System.out.println(hours + " hours = " + Time.hoursToDays(hours) + " days.");
+                  } else if (choice == 4) {
+                    System.out.println(hours + " hours = " + Time.hoursToDays(hours) / 7.0 + " weeks.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-4.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-d":
+              case "--days":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --days <choice> <value>\n"
+                          + "Choices: 1 = to hours, 2 = to weeks, 3 = to months, 4 = to years");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double days = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(days + " days = " + Time.daysToHours(days) + " hours.");
+                  } else if (choice == 2) {
+                    System.out.println(days + " days = " + Time.daysToWeeks(days) + " weeks.");
+                  } else if (choice == 3) {
+                    System.out.println(days + " days = " + Time.daysToMonths(days) + " months.");
+                  } else if (choice == 4) {
+                    System.out.println(days + " days = " + Time.daysToYears(days) + " years.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-4.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-w":
+              case "--weeks":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --weeks <choice> <value>\n"
+                          + "Choices: 1 = to days, 2 = to months");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double weeks = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(weeks + " weeks = " + Time.weeksToDays(weeks) + " days.");
+                  } else if (choice == 2) {
+                    System.out.println(weeks + " weeks = " + Time.weeksToDays(weeks) * 30.44 / 7.0 + " months.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-mo":
+              case "--months":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --months <choice> <value>\n"
+                          + "Choices: 1 = to days, 2 = to years");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double months = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(months + " months = " + Time.monthsToDays(months) + " days.");
+                  } else if (choice == 2) {
+                    System.out.println(months + " months = " + Time.monthsToDays(months) / 365.25 + " years.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-y":
+              case "--years":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --years <choice> <value>\n"
+                          + "Choices: 1 = to days, 2 = to months, 3 = to decades, 4 = to centuries, 5 = to millennia");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double years = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(years + " years = " + Time.yearsToDays(years) + " days.");
+                  } else if (choice == 2) {
+                    System.out.println(years + " years = " + Time.yearsToDays(years) / 30.44 + " months.");
+                  } else if (choice == 3) {
+                    System.out.println(years + " years = " + Time.yearsToDecades(years) + " decades.");
+                  } else if (choice == 4) {
+                    System.out.println(years + " years = " + Time.yearsToCenturies(years) + " centuries.");
+                  } else if (choice == 5) {
+                    System.out.println(years + " years = " + Time.yearsToMillennia(years) + " millennia.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-5.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-dec":
+              case "--decades":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --decades <choice> <value>\n"
+                          + "Choices: 1 = to years, 2 = to centuries");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double decades = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(decades + " decades = " + Time.decadesToYears(decades) + " years.");
+                  } else if (choice == 2) {
+                    System.out.println(decades + " decades = " + Time.decadesToYears(decades) / 100.0 + " centuries.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-cen":
+              case "--centuries":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --centuries <choice> <value>\n"
+                          + "Choices: 1 = to years, 2 = to millennia");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double centuries = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(centuries + " centuries = " + Time.centuriesToYears(centuries) + " years.");
+                  } else if (choice == 2) {
+                    System.out.println(centuries + " centuries = " + Time.centuriesToYears(centuries) / 1000.0 + " millennia.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
+              case "-mil":
+              case "--millennia":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --millennia <choice> <value>\n"
+                          + "Choices: 1 = to years, 2 = to centuries");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double millennia = Double.parseDouble(args[4]);
+
+                  if (choice == 1) {
+                    System.out.println(millennia + " millennia = " + Time.millenniaToYears(millennia) + " years.");
+                  } else if (choice == 2) {
+                    System.out.println(millennia + " millennia = " + Time.millenniaToYears(millennia) / 100.0 + " centuries.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-2.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+
               default:
                 System.out.println("Unknown time conversion flag: " + args[2]);
+                System.out.println("Available flags: --nanoseconds, --microseconds, --milliseconds, --seconds, --minutes, --hours, --days, --weeks, --months, --years, --decades, --centuries, --millennia");
                 System.exit(0);
                 break;
             }
@@ -686,7 +1035,7 @@ public class Main {
 
       case "--min":
         if (args.length != 3) {
-          System.out.println("Argument amount not met.\nUsage: -M <number> <number>");
+          System.out.println("Argument amount not met.\nUsage: --min <number> <number>");
           System.exit(0);
         } else {
           try {

@@ -44,6 +44,10 @@ public final class Time {
         return v * 3_600.0;
     }
 
+    public static double secondsToDays(double v) {
+        return v / 86_400.0;
+    }
+
     // ---- Minutes / Hours ----
     public static double minutesToHours(double v) {
         return v / 60.0;
