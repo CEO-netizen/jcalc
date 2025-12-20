@@ -351,104 +351,167 @@ public class Main {
         }
         break;
 
-      case "--conv": // convert commands using Integer.parseInt, Math, etc
+      case "--conv": // Conversion commands for numbers and time units
         switch (args[1]) {
-          case "--binary": // binary flags
-          case "-b":
-            if (args.length != 4) {
-              System.out.println(
-                  "Argument amount not met\n"
-                      + "Usage: --binary <number> <type>\n"
-                      + "Types: 1 = convert to decimal 2 = convert to hexadecimal 3 = covert to"
-                      + " octal 4 = convert to ASCII");
-            } else {
-              try {
-                String num1_bin_conv = args[2];
-                int type_bin_conv = Integer.parseInt(args[3]);
-                int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
-
-                if (type_bin_conv == 1) {
-                  System.out.println(num1_bin_conv + " in decimal is " + dec_bin_conv);
-                } else if (type_bin_conv == 2) {
-                  String hex_bin_conv = Integer.toHexString(dec_bin_conv);
-
+          case "-n":
+          case "--numbers":
+            switch (args[2]) {
+              case "--binary": // Binary conversion options
+              case "-b":
+                if (args.length != 4) {
                   System.out.println(
-                      "Binary: " + num1_bin_conv + " -> hexadecimal: " + hex_bin_conv.toUpperCase());
-                } else if (type_bin_conv == 3) {
-                  String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
+                      "Argument amount not met\n"
+                          + "Usage: --conv --numbers --binary <binary_number> <type>\n"
+                          + "Types: 1 = convert to decimal, 2 = convert to hexadecimal, 3 = convert to octal, 4 = convert to ASCII");
+                  System.exit(0);
+                } else {
+                  try {
+                    String num1_bin_conv = args[3];
+                    int type_bin_conv = Integer.parseInt(args[4]);
+                    int dec_bin_conv = Integer.parseInt(num1_bin_conv, 2);
 
-                  System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
-                } else if (type_bin_conv == 4) {
-                  System.out.println(
-                      "Binary: " + num1_bin_conv + " -> ASCII: " + (binaryToText(num1_bin_conv)));
+                    if (type_bin_conv == 1) {
+                      System.out.println(num1_bin_conv + " in decimal is " + dec_bin_conv);
+                    } else if (type_bin_conv == 2) {
+                      String hex_bin_conv = Integer.toHexString(dec_bin_conv);
 
+                      System.out.println(
+                          "Binary: "
+                              + num1_bin_conv
+                              + " -> hexadecimal: "
+                              + hex_bin_conv.toUpperCase());
+                    } else if (type_bin_conv == 3) {
+                      String oct_bin_conv = Integer.toOctalString(dec_bin_conv);
+
+                      System.out.println("Binary: " + num1_bin_conv + " -> octal: " + oct_bin_conv);
+                    } else if (type_bin_conv == 4) {
+                      System.out.println(
+                          "Binary: "
+                              + num1_bin_conv
+                              + " -> ASCII: "
+                              + (binaryToText(num1_bin_conv)));
+                    } else {
+                      System.out.println("Invalid type. Use 1-4.");
+                      System.exit(0);
+                    }
+                  } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid number format");
+                    System.exit(0);
+                  } catch (ArithmeticException e) {
+                    System.out.println("Error: overflow");
+                    System.exit(0);
+                  }
                 }
-              } catch (NumberFormatException e) {
-                System.out.println("Error: number format exception");
+                break;
+
+              case "-hex":
+              case "--hexadecimal":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --numbers --hexadecimal <hex_number> <type>\n"
+                          + "Types: 1 = convert to decimal, 2 = convert to binary, 3 = convert to octal, 4 = convert to ASCII");
+                  System.exit(0);
+                }
+                String num1_hex_conv = args[3];
+                int type_hex_conv = Integer.parseInt(args[4]);
+                if (type_hex_conv == 1) {
+                  try {
+                    int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+                    System.out.println(
+                        "Hexadecimal: " + num1_hex_conv + " -> Decimal: " + dec_hex_conv);
+                  } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid hexadecimal number");
+                    System.exit(0);
+                  }
+                } else if (type_hex_conv == 2) {
+                  try {
+                    int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+                    String bin_hex_conv = Integer.toBinaryString(dec_hex_conv);
+
+                    System.out.println(
+                        "Hexadecimal: " + num1_hex_conv + " -> Binary: " + bin_hex_conv);
+                  } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid hexadecimal number");
+                    System.exit(0);
+                  }
+                } else if (type_hex_conv == 3) {
+                  try {
+                    int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+
+                    String oct_hex_conv = Integer.toOctalString(dec_hex_conv);
+
+                    System.out.println(
+                        "Hexadecimal: " + num1_hex_conv + " -> Octal: " + oct_hex_conv);
+                  } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid hexadecimal number");
+                    System.exit(0);
+                  }
+                } else if (type_hex_conv == 4) {
+                  try {
+                    String ascii_hex_conv = hexToText(num1_hex_conv);
+
+                    System.out.println(
+                        "Hexadecimal: " + num1_hex_conv + " -> ASCII: " + ascii_hex_conv);
+                  } catch (NumberFormatException e) {
+                    System.out.println("Error: invalid hexadecimal number");
+                    System.exit(0);
+                  }
+                } else {
+                  System.out.println("Invalid type. Use 1-4.");
+                  System.exit(0);
+                }
+                break;
+              default:
+                System.out.println("Unknown number conversion flag: " + args[2]);
                 System.exit(0);
-              } catch (ArithmeticException e) {
-                System.out.println("Error: overflow");
-              }
-            }
+                break;
+            } // end numbers switch
             break;
 
-          case "-hex":
-          case "--hexadecimal":
-            if (args.length != 4) {
-              System.out.println(
-                  "Argument amount not met\n"
-                      + "Usage: --hexadecimal <number> <type>\n"
-                      + "Types: 1 = convert hexadecimal to decimal 2 = convert hexadecimal to"
-                      + " binary 3 = convert hexadecimal to octal");
-            }
-            String num1_hex_conv = args[2];
-            int type_hex_conv = Integer.parseInt(args[3]);
-            if (type_hex_conv == 1) {
-              try {
-                int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
+          case "-t":
+          case "--time":
+            // Time unit conversions using the Time utility class
+            switch (args[2]) {
+              case "-s":
+              case "--seconds":
+                if (args.length != 5) {
+                  System.out.println(
+                      "Argument amount not met\n"
+                          + "Usage: --conv --time --seconds <choice> <value>\n"
+                          + "Choices: 1 = to minutes, 2 = to milliseconds, 3 = to hours");
+                  System.exit(0);
+                }
+                try {
+                  int choice = Integer.parseInt(args[3]);
+                  double seconds = Double.parseDouble(args[4]);
 
-                System.out.println(
-                    "hexadecimal: " + num1_hex_conv + " -> Decimal: " + dec_hex_conv);
-              } catch (NumberFormatException e) {
-                System.out.println("Error: number format exception");
-
+                  if (choice == 1) {
+                    System.out.println(seconds + " seconds = " + Time.secondsToMinutes(seconds) + " minutes.");
+                  } else if (choice == 2) {
+                    System.out.println(seconds + " seconds = " + Time.secondsToMilliseconds(seconds) + " milliseconds.");
+                  } else if (choice == 3) {
+                    System.out.println(seconds + " seconds = " + Time.secondsToHours(seconds) + " hours.");
+                  } else {
+                    System.out.println("Invalid choice. Use 1-3.");
+                    System.exit(0);
+                  }
+                } catch (NumberFormatException e) {
+                  System.out.println("Error: invalid number format");
+                  System.exit(0);
+                }
+                break;
+              default:
+                System.out.println("Unknown time conversion flag: " + args[2]);
                 System.exit(0);
-              }
-            } else if (type_hex_conv == 2) {
-              try {
-                int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
-
-                String bin_hex_conv = Integer.toBinaryString(dec_hex_conv);
-
-                System.out.println("hexadecimal: " + num1_hex_conv + " -> Binary: " + bin_hex_conv);
-              } catch (NumberFormatException e) {
-                System.out.println("Error: number format exception");
-                System.exit(0);
-              }
-            } else if (type_hex_conv == 3) {
-              try {
-                int dec_hex_conv = Integer.parseInt(num1_hex_conv, 16);
-
-                String oct_hex_conv = Integer.toOctalString(dec_hex_conv);
-
-                System.out.println("hexadecimal: " + num1_hex_conv + " -> octal: " + oct_hex_conv);
-              } catch (NumberFormatException e) {
-                System.out.println("Error: invalid hexadecimal number");
-                System.exit(0);
-              }
-            } else if (type_hex_conv == 4) {
-              try {
-                String ascii_hex_conv = hexToText(num1_hex_conv);
-
-                System.out.println("hexadecimal: " + num1_hex_conv + " ASCII: " + ascii_hex_conv);
-              } catch (NumberFormatException e) {
-                System.out.println("Error: number format exception");
-                System.exit(0);
-              }
+                break;
             }
             break;
           default:
-            System.out.println("Unknown flag: " + args[1]);
+            System.out.println("Unknown conversion category: " + args[1]);
+            System.exit(0);
             break;
         } // end convert switch
         break;
@@ -468,7 +531,10 @@ public class Main {
             int num_natural_log = Integer.parseInt(args[1]);
 
             System.out.println(
-                "Natural logarithm of: " + num_natural_log + " equals: " + Math.log(num_natural_log));
+                "Natural logarithm of: "
+                    + num_natural_log
+                    + " equals: "
+                    + Math.log(num_natural_log));
           } catch (NumberFormatException e) {
             System.out.println("Error: number format exception");
             System.exit(0);
@@ -494,7 +560,8 @@ public class Main {
             int num1_ae = Integer.parseInt(args[1]);
             int num2_ae = Integer.parseInt(args[2]);
 
-            System.out.println(num1_ae + " plus " + num2_ae + " equals " + (Math.addExact(num1_ae, num2_ae)));
+            System.out.println(
+                num1_ae + " plus " + num2_ae + " equals " + (Math.addExact(num1_ae, num2_ae)));
           } catch (ArithmeticException e) {
             System.out.println("Error: Overflow");
             System.exit(0);
@@ -515,7 +582,8 @@ public class Main {
             int num1_se = Integer.parseInt(args[1]);
             int num2_se = Integer.parseInt(args[2]);
 
-            System.out.println(num1_se + " plus " + num2_se + " equals " + (Math.subtractExact(num1_se, num2_se)));
+            System.out.println(
+                num1_se + " plus " + num2_se + " equals " + (Math.subtractExact(num1_se, num2_se)));
           } catch (ArithmeticException e) {
             System.out.println("Error: Overflow");
             System.exit(0);
@@ -535,7 +603,12 @@ public class Main {
             int num1_me = Integer.parseInt(args[1]);
             int num2_me = Integer.parseInt(args[2]);
 
-            System.out.println(num1_me + " times " + num2_me + " equals " + (Math.multiplyExact(num1_me, num2_me)));
+            System.out.println(
+                num1_me
+                    + " times "
+                    + num2_me
+                    + " equals "
+                    + (Math.multiplyExact(num1_me, num2_me)));
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
             System.exit(0);
@@ -556,7 +629,12 @@ public class Main {
             int num1_de = Integer.parseInt(args[1]);
             int num2_de = Integer.parseInt(args[2]);
 
-            System.out.println(num1_de + " divided by " + num2_de + " equals " + (Math.divideExact(num1_de, num2_de)));
+            System.out.println(
+                num1_de
+                    + " divided by "
+                    + num2_de
+                    + " equals "
+                    + (Math.divideExact(num1_de, num2_de)));
           } catch (ArithmeticException e) {
             System.out.println("Error: overflow");
             System.exit(0);
@@ -600,37 +678,42 @@ public class Main {
             System.out.println("Error: number format exception");
             System.exit(0);
           } catch (ArithmeticException e) {
-        	  System.out.println("Error: overflow");
-        	  System.exit(0);
+            System.out.println("Error: overflow");
+            System.exit(0);
           }
         }
         break;
-        
+
       case "--min":
-    	 if (args.length != 3) {
-    		 System.out.println("Argument amount not met.\nUsage: -M <number> <number>");
-    		 System.exit(0);
-    	 } else {
-    		 try {
-    			 float num1_min = Float.parseFloat(args[1]);
-    			 float num2_min = Float.parseFloat(args[2]);
-    			 
-    			 System.out.println("The smaller of: " + num1_min + " and " + num2_min + " is: " + (Math.min(num1_min, num2_min)));
-    		 } catch (NumberFormatException e) {
-    			 System.out.println("Please enter valid numbers");
-    			 System.exit(0);
-    		 } catch (ArithmeticException e) {
-    			 System.out.println("Error: overflow");
-    			 System.exit(0);
-    		 }
-    	 }
-      break;
+        if (args.length != 3) {
+          System.out.println("Argument amount not met.\nUsage: -M <number> <number>");
+          System.exit(0);
+        } else {
+          try {
+            float num1_min = Float.parseFloat(args[1]);
+            float num2_min = Float.parseFloat(args[2]);
+
+            System.out.println(
+                "The smaller of: "
+                    + num1_min
+                    + " and "
+                    + num2_min
+                    + " is: "
+                    + (Math.min(num1_min, num2_min)));
+          } catch (NumberFormatException e) {
+            System.out.println("Please enter valid numbers");
+            System.exit(0);
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
+            System.exit(0);
+          }
+        }
+        break;
     } // end command switch
   }
 
   public static long fibIterative(int n) {
-    if (n <= 1)
-      return n;
+    if (n <= 1) return n;
 
     long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
     for (int i = 2; i <= n; i++) {
@@ -642,10 +725,8 @@ public class Main {
   }
 
   public static long fibMemo(int n) {
-    if (n <= 1)
-      return n;
-    if (fibCache.containsKey(n))
-      return fibCache.get(n);
+    if (n <= 1) return n;
+    if (fibCache.containsKey(n)) return fibCache.get(n);
 
     long result = fibMemo(n - 1) + fibMemo(n - 2);
     fibCache.put(n, result);
@@ -653,10 +734,8 @@ public class Main {
   }
 
   public static long modFib(int n, int m) {
-    if (n == 0)
-      return 0;
-    if (n == 1)
-      return 1 % m;
+    if (n == 0) return 0;
+    if (n == 1) return 1 % m;
 
     long a = 0;
     long b = 1;
@@ -671,8 +750,7 @@ public class Main {
   }
 
   public static long fibRecursive(int n) {
-    if (n <= 1)
-      return n;
+    if (n <= 1) return n;
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
 
@@ -716,8 +794,7 @@ public class Main {
       System.out.print("Jcalc> ");
       String input = Sc.nextLine().trim();
 
-      if (input.isEmpty())
-        continue;
+      if (input.isEmpty()) continue;
 
       switch (input.toLowerCase()) {
         case "exit":
@@ -729,32 +806,32 @@ public class Main {
         case "help":
           System.out.println(
               """
-                  Commands:
-                    \33[31mhelp\33[0m      Show this message
-                    \33[31mexit\33[0m      Quit JCalc
-                     \33[31mquit\33[0m      Same as exit
-                     \33[31mans\33[0m       Use last result in an expression
-                     \33[31mcos\33[0m       Calculate the cosine of an angle
-                     \33[31msin\33[0m       Find the sine of an angle
-                     \33[31mabs\33[0m       Find the absolute value of an equation
-                     \33[31msqrt\33[0m      Find the square root of a number
-                     \33[31mcbrt\33[0m      Find the cube root of a number
-                     \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
-                     \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
-                     \33[31mlog\33[0m       Used in logarithm problems
-                     \33[31mnl\33[0m        Used for natural logarithm problems
-                  Examples:
-                    \33[31m2 + 3 * 4
-                     ans / 2
-                     cos 778
-                     sin 67
-                     tan 72
-                     sqrt 4
-                     (2 * 4) / (2 + 2)
-                     cbrt (pi + 0)
-                     abs 998 + 5
-                     e + 0\33[0m
-                  """);
+              Commands:
+                \33[31mhelp\33[0m      Show this message
+                \33[31mexit\33[0m      Quit JCalc
+                 \33[31mquit\33[0m      Same as exit
+                 \33[31mans\33[0m       Use last result in an expression
+                 \33[31mcos\33[0m       Calculate the cosine of an angle
+                 \33[31msin\33[0m       Find the sine of an angle
+                 \33[31mabs\33[0m       Find the absolute value of an equation
+                 \33[31msqrt\33[0m      Find the square root of a number
+                 \33[31mcbrt\33[0m      Find the cube root of a number
+                 \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
+                 \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
+                 \33[31mlog\33[0m       Used in logarithm problems
+                 \33[31mnl\33[0m        Used for natural logarithm problems
+              Examples:
+                \33[31m2 + 3 * 4
+                 ans / 2
+                 cos 778
+                 sin 67
+                 tan 72
+                 sqrt 4
+                 (2 * 4) / (2 + 2)
+                 cbrt (pi + 0)
+                 abs 998 + 5
+                 e + 0\33[0m
+              """);
           continue;
 
         default:
