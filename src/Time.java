@@ -1,3 +1,20 @@
+/*
+ *   _______
+ *  /  12   \
+ * |    |    |
+ * |9   |   3|
+ * |     \   |
+ * |         |
+ *  \___6___/
+ * Time conversion library
+ * This library provides methods for converting time units.
+ * author: Zero
+ * license: MIT
+ * ASCII art author: Zero
+*/
+
+
+
 public final class Time {
 
     private Time() {}
