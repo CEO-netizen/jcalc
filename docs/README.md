@@ -17,6 +17,7 @@
 - Atan2
 - Fibonacci algorithms
 - Conversion
+- Time conversions (all major units)
 - Custom expression parser
 - Exact expressions (Add and Subtract)
 
@@ -83,6 +84,22 @@ Conversion:
 java -jar jcalc-1.0.4.jar --conv --binary 1101 1
 java -jar jcalc-1.0.4.jar --conv --hexadecimal 1E25 1
 ```
+Time conversions:
+```bash
+# Convert 60 minutes to seconds
+java -jar jcalc-1.0.4.jar --conv --time --minutes 1 60
+
+# Convert 1 hour to minutes  
+java -jar jcalc-1.0.4.jar --conv --time --hours 2 1
+
+# Convert 1 day to hours
+java -jar jcalc-1.0.4.jar --conv --time --days 1 1
+
+# Convert 3600 seconds to minutes
+java -jar jcalc-1.0.4.jar --conv --time --seconds 1 3600
+```
+
+Supported time units: nanoseconds, microseconds, milliseconds, seconds, minutes, hours, days, weeks, months, years, decades, centuries, millennia. Use --conv --time --help for detailed usage.
 ExpressionParser:
 ```bash
 java -jar jcalc-1.0.4.jar --parse
@@ -119,6 +136,18 @@ P.S I would do screenshots but I use a tilling WM on Wayland compositing
 > [!WARNING]
 > *"TESTED WITH JDK-26-EA, BEWARE OF JDK CONFLICTS."*
 
-FUNDING DISCLAIMER: Funding is not required for usage of this software nor integration of this software's source code.
+FUNDING DISCLAIMER: Funding is no
+    .-----.      zero@gentoo
+  .`    _  `.    OS:        Gentoo Linux
+  `.   (_)   `.  KERNEL:    Linux 6.12.58-gentoo-dist
+    `.        /  UPTIME:    6 hours, 2 minutes
+   .`       .`   PACKAGES:  1051
+  /       .`     SHELL:     zsh
+  \____.-`       DE:        GNOME
+
+❯ 
+❯ cd /home/zero/jcalc && javac src/*.java
+
+t required for usage of this software nor integration of this software's source code.
 > But funding is appericiated. You can fund my work with Monero.
 > E-Mail me for my funding address, because I do not want web scrapers scanning this page and finding my payment info.
