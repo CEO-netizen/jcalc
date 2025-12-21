@@ -1,4 +1,3 @@
-
 /*
  *
  *         ,---._
@@ -363,7 +362,8 @@ public class Main {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --numbers --binary <binary_number> <type>\n"
-                          + "Types: 1 = convert to decimal, 2 = convert to hexadecimal, 3 = convert to octal, 4 = convert to ASCII");
+                          + "Types: 1 = convert to decimal, 2 = convert to hexadecimal, 3 = convert"
+                          + " to octal, 4 = convert to ASCII");
                   System.exit(0);
                 } else {
                   try {
@@ -411,7 +411,8 @@ public class Main {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --numbers --hexadecimal <hex_number> <type>\n"
-                          + "Types: 1 = convert to decimal, 2 = convert to binary, 3 = convert to octal, 4 = convert to ASCII");
+                          + "Types: 1 = convert to decimal, 2 = convert to binary, 3 = convert to"
+                          + " octal, 4 = convert to ASCII");
                   System.exit(0);
                 }
                 String num1_hex_conv = args[3];
@@ -490,11 +491,23 @@ public class Main {
                   double milliseconds = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToMicroseconds(milliseconds) + " microseconds.");
+                    System.out.println(
+                        milliseconds
+                            + " milliseconds = "
+                            + Time.millisecondsToMicroseconds(milliseconds)
+                            + " microseconds.");
                   } else if (choice == 2) {
-                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToSeconds(milliseconds) + " seconds.");
+                    System.out.println(
+                        milliseconds
+                            + " milliseconds = "
+                            + Time.millisecondsToSeconds(milliseconds)
+                            + " seconds.");
                   } else if (choice == 3) {
-                    System.out.println(milliseconds + " milliseconds = " + Time.millisecondsToSeconds(milliseconds) / 60.0 + " minutes.");
+                    System.out.println(
+                        milliseconds
+                            + " milliseconds = "
+                            + Time.millisecondsToSeconds(milliseconds) / 60.0
+                            + " minutes.");
                   } else {
                     System.out.println("Invalid choice. Use 1-3.");
                     System.exit(0);
@@ -505,7 +518,7 @@ public class Main {
                 }
                 break;
 
-              case "-μs":
+              case "-us":
               case "--microseconds":
                 if (args.length != 5) {
                   System.out.println(
@@ -519,11 +532,23 @@ public class Main {
                   double microseconds = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToNanoseconds(microseconds) + " nanoseconds.");
+                    System.out.println(
+                        microseconds
+                            + " microseconds = "
+                            + Time.microsecondsToNanoseconds(microseconds)
+                            + " nanoseconds.");
                   } else if (choice == 2) {
-                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToMilliseconds(microseconds) + " milliseconds.");
+                    System.out.println(
+                        microseconds
+                            + " microseconds = "
+                            + Time.microsecondsToMilliseconds(microseconds)
+                            + " milliseconds.");
                   } else if (choice == 3) {
-                    System.out.println(microseconds + " microseconds = " + Time.microsecondsToMilliseconds(microseconds) / 1000.0 + " seconds.");
+                    System.out.println(
+                        microseconds
+                            + " microseconds = "
+                            + Time.microsecondsToMilliseconds(microseconds) / 1000.0
+                            + " seconds.");
                   } else {
                     System.out.println("Invalid choice. Use 1-3.");
                     System.exit(0);
@@ -548,9 +573,17 @@ public class Main {
                   double nanoseconds = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(nanoseconds + " nanoseconds = " + Time.nanosecondsToMicroseconds(nanoseconds) + " microseconds.");
+                    System.out.println(
+                        nanoseconds
+                            + " nanoseconds = "
+                            + Time.nanosecondsToMicroseconds(nanoseconds)
+                            + " microseconds.");
                   } else if (choice == 2) {
-                    System.out.println(nanoseconds + " nanoseconds = " + Time.nanosecondsToMicroseconds(nanoseconds) / 1000000.0 + " seconds.");
+                    System.out.println(
+                        nanoseconds
+                            + " nanoseconds = "
+                            + Time.nanosecondsToMicroseconds(nanoseconds) / 1000000.0
+                            + " seconds.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -567,7 +600,8 @@ public class Main {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --time --seconds <choice> <value>\n"
-                          + "Choices: 1 = to minutes, 2 = to milliseconds, 3 = to hours, 4 = to days");
+                          + "Choices: 1 = to minutes, 2 = to milliseconds, 3 = to hours, 4 = to"
+                          + " days");
                   System.exit(0);
                 }
                 try {
@@ -575,13 +609,20 @@ public class Main {
                   double seconds = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(seconds + " seconds = " + Time.secondsToMinutes(seconds) + " minutes.");
+                    System.out.println(
+                        seconds + " seconds = " + Time.secondsToMinutes(seconds) + " minutes.");
                   } else if (choice == 2) {
-                    System.out.println(seconds + " seconds = " + Time.secondsToMilliseconds(seconds) + " milliseconds.");
+                    System.out.println(
+                        seconds
+                            + " seconds = "
+                            + Time.secondsToMilliseconds(seconds)
+                            + " milliseconds.");
                   } else if (choice == 3) {
-                    System.out.println(seconds + " seconds = " + Time.secondsToHours(seconds) + " hours.");
+                    System.out.println(
+                        seconds + " seconds = " + Time.secondsToHours(seconds) + " hours.");
                   } else if (choice == 4) {
-                    System.out.println(seconds + " seconds = " + Time.secondsToDays(seconds) + " days.");
+                    System.out.println(
+                        seconds + " seconds = " + Time.secondsToDays(seconds) + " days.");
                   } else {
                     System.out.println("Invalid choice. Use 1-4.");
                     System.exit(0);
@@ -596,7 +637,8 @@ public class Main {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --time --minutes <choice> <value>\n"
-                          + "Choices: 1 = to seconds, 2 = to hours, 3 = to days, 4 = to milliseconds");
+                          + "Choices: 1 = to seconds, 2 = to hours, 3 = to days, 4 = to"
+                          + " milliseconds");
                   System.exit(0);
                 }
                 try {
@@ -604,13 +646,20 @@ public class Main {
                   double minutes = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(minutes + " minutes = " + Time.minutesToSeconds(minutes) + " seconds.");
+                    System.out.println(
+                        minutes + " minutes = " + Time.minutesToSeconds(minutes) + " seconds.");
                   } else if (choice == 2) {
-                    System.out.println(minutes + " minutes = " + Time.minutesToHours(minutes) + " hours.");
+                    System.out.println(
+                        minutes + " minutes = " + Time.minutesToHours(minutes) + " hours.");
                   } else if (choice == 3) {
-                    System.out.println(minutes + " minutes = " + Time.minutesToHours(minutes) / 24.0 + " days.");
+                    System.out.println(
+                        minutes + " minutes = " + Time.minutesToHours(minutes) / 24.0 + " days.");
                   } else if (choice == 4) {
-                    System.out.println(minutes + " minutes = " + Time.minutesToSeconds(minutes) * 1000.0 + " milliseconds.");
+                    System.out.println(
+                        minutes
+                            + " minutes = "
+                            + Time.minutesToSeconds(minutes) * 1000.0
+                            + " milliseconds.");
                   } else {
                     System.out.println("Invalid choice. Use 1-4.");
                     System.exit(0);
@@ -635,13 +684,16 @@ public class Main {
                   double hours = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(hours + " hours = " + Time.hoursToSeconds(hours) + " seconds.");
+                    System.out.println(
+                        hours + " hours = " + Time.hoursToSeconds(hours) + " seconds.");
                   } else if (choice == 2) {
-                    System.out.println(hours + " hours = " + Time.hoursToMinutes(hours) + " minutes.");
+                    System.out.println(
+                        hours + " hours = " + Time.hoursToMinutes(hours) + " minutes.");
                   } else if (choice == 3) {
                     System.out.println(hours + " hours = " + Time.hoursToDays(hours) + " days.");
                   } else if (choice == 4) {
-                    System.out.println(hours + " hours = " + Time.hoursToDays(hours) / 7.0 + " weeks.");
+                    System.out.println(
+                        hours + " hours = " + Time.hoursToDays(hours) / 7.0 + " weeks.");
                   } else {
                     System.out.println("Invalid choice. Use 1-4.");
                     System.exit(0);
@@ -699,7 +751,8 @@ public class Main {
                   if (choice == 1) {
                     System.out.println(weeks + " weeks = " + Time.weeksToDays(weeks) + " days.");
                   } else if (choice == 2) {
-                    System.out.println(weeks + " weeks = " + Time.weeksToDays(weeks) * 30.44 / 7.0 + " months.");
+                    System.out.println(
+                        weeks + " weeks = " + Time.weeksToDays(weeks) * 30.44 / 7.0 + " months.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -724,9 +777,11 @@ public class Main {
                   double months = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(months + " months = " + Time.monthsToDays(months) + " days.");
+                    System.out.println(
+                        months + " months = " + Time.monthsToDays(months) + " days.");
                   } else if (choice == 2) {
-                    System.out.println(months + " months = " + Time.monthsToDays(months) / 365.25 + " years.");
+                    System.out.println(
+                        months + " months = " + Time.monthsToDays(months) / 365.25 + " years.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -743,7 +798,8 @@ public class Main {
                   System.out.println(
                       "Argument amount not met\n"
                           + "Usage: --conv --time --years <choice> <value>\n"
-                          + "Choices: 1 = to days, 2 = to months, 3 = to decades, 4 = to centuries, 5 = to millennia");
+                          + "Choices: 1 = to days, 2 = to months, 3 = to decades, 4 = to centuries,"
+                          + " 5 = to millennia");
                   System.exit(0);
                 }
                 try {
@@ -753,13 +809,17 @@ public class Main {
                   if (choice == 1) {
                     System.out.println(years + " years = " + Time.yearsToDays(years) + " days.");
                   } else if (choice == 2) {
-                    System.out.println(years + " years = " + Time.yearsToDays(years) / 30.44 + " months.");
+                    System.out.println(
+                        years + " years = " + Time.yearsToDays(years) / 30.44 + " months.");
                   } else if (choice == 3) {
-                    System.out.println(years + " years = " + Time.yearsToDecades(years) + " decades.");
+                    System.out.println(
+                        years + " years = " + Time.yearsToDecades(years) + " decades.");
                   } else if (choice == 4) {
-                    System.out.println(years + " years = " + Time.yearsToCenturies(years) + " centuries.");
+                    System.out.println(
+                        years + " years = " + Time.yearsToCenturies(years) + " centuries.");
                   } else if (choice == 5) {
-                    System.out.println(years + " years = " + Time.yearsToMillennia(years) + " millennia.");
+                    System.out.println(
+                        years + " years = " + Time.yearsToMillennia(years) + " millennia.");
                   } else {
                     System.out.println("Invalid choice. Use 1-5.");
                     System.exit(0);
@@ -784,9 +844,14 @@ public class Main {
                   double decades = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(decades + " decades = " + Time.decadesToYears(decades) + " years.");
+                    System.out.println(
+                        decades + " decades = " + Time.decadesToYears(decades) + " years.");
                   } else if (choice == 2) {
-                    System.out.println(decades + " decades = " + Time.decadesToYears(decades) / 100.0 + " centuries.");
+                    System.out.println(
+                        decades
+                            + " decades = "
+                            + Time.decadesToYears(decades) / 100.0
+                            + " centuries.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -811,9 +876,14 @@ public class Main {
                   double centuries = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(centuries + " centuries = " + Time.centuriesToYears(centuries) + " years.");
+                    System.out.println(
+                        centuries + " centuries = " + Time.centuriesToYears(centuries) + " years.");
                   } else if (choice == 2) {
-                    System.out.println(centuries + " centuries = " + Time.centuriesToYears(centuries) / 1000.0 + " millennia.");
+                    System.out.println(
+                        centuries
+                            + " centuries = "
+                            + Time.centuriesToYears(centuries) / 1000.0
+                            + " millennia.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -838,9 +908,14 @@ public class Main {
                   double millennia = Double.parseDouble(args[4]);
 
                   if (choice == 1) {
-                    System.out.println(millennia + " millennia = " + Time.millenniaToYears(millennia) + " years.");
+                    System.out.println(
+                        millennia + " millennia = " + Time.millenniaToYears(millennia) + " years.");
                   } else if (choice == 2) {
-                    System.out.println(millennia + " millennia = " + Time.millenniaToYears(millennia) / 100.0 + " centuries.");
+                    System.out.println(
+                        millennia
+                            + " millennia = "
+                            + Time.millenniaToYears(millennia) / 100.0
+                            + " centuries.");
                   } else {
                     System.out.println("Invalid choice. Use 1-2.");
                     System.exit(0);
@@ -853,7 +928,10 @@ public class Main {
 
               default:
                 System.out.println("Unknown time conversion flag: " + args[2]);
-                System.out.println("Available flags: --nanoseconds, --microseconds, --milliseconds, --seconds, --minutes, --hours, --days, --weeks, --months, --years, --decades, --centuries, --millennia");
+                System.out.println(
+                    "Available flags: --nanoseconds, --microseconds, --milliseconds, --seconds,"
+                        + " --minutes, --hours, --days, --weeks, --months, --years, --decades,"
+                        + " --centuries, --millennia");
                 System.exit(0);
                 break;
             }
