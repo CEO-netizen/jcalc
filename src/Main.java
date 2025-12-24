@@ -190,7 +190,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.4\33[0m)-by-(\33[31mZero\33[0m)-\n"
+              "-(\33[31mJcalc\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "BASIC FUNCTIONS:\n"
                   + "- SUBTRACTION: \33[31m-s/--subtract\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLICATION: \33[31m-m/--multiply\33[0m ARG_AMOUNT: 2\n"
@@ -208,7 +208,7 @@ public class Main {
           System.exit(0);
         } else {
           System.out.println(
-              "-(\33[31mJcalc-v1.0.4\33[0m)-by-(\33[31mZero\33[0m)-\n"
+              "-(\33[31mJcalc\33[0m)-by-(\33[31mZero\33[0m)-\n"
                   + "ADVANCED FUNCTIONS:\n"
                   + "- SQUARE ROOT: \33[31m-S/--sqrt\33[0m ARG_AMOUNT: 2\n"
                   + "- SINE: \33[31m--sin\33[0m ARG_AMOUNT: 1\n"
@@ -232,6 +232,23 @@ public class Main {
                   + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1\n"
                   + "- SINH \33[31m-sh/--sinh\33[0m ARG_AMOUNT: 1"
                   + "- MIN \33[31--min\33[0m ARG_AMOUNT: 2");
+        }
+        break;
+
+      case "--version":
+      case "-v":
+        if (args.length != 1) {
+          System.out.println("No args required for version message.");
+          System.exit(0);
+        } else {
+          System.out.println(
+              "Jcalc version 1.0.9 by Zero, 2025\n"
+                  + "details:\n"
+                  + "release date: Wednesday, December 24th, 2025\n"
+                  + "license: MIT\n"
+                  + "license details: https://opensource.org/license/mit/\n"
+                  + "contact email: aafire@firemail.cc\n"
+                  + "What drove you to make this? Answer: boredom and practice.");
         }
         break;
 
