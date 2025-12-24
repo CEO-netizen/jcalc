@@ -1136,11 +1136,42 @@ public class Main {
           }
         }
         break;
+
+      case "--max":
+        if (args.length != 3) {
+          System.out.println("Argument amount not met.\nUsage: --max <number> <number>");
+          System.exit(0);
+        } else {
+          try {
+            float num1_max = Float.parseFloat(args[1]);
+            float num2_max = Float.parseFloat(args[2]);
+
+            System.out.println(
+                "The larger of: "
+                    + num1_max
+                    + " and "
+                    + num2_max
+                    + " is: "
+                    + (Math.max(num1_max, num2_max)));
+          } catch (NumberFormatException e) {
+            System.out.println("Please enter valid numbers");
+            System.exit(0);
+          } catch (ArithmeticException e) {
+            System.out.println("Error: overflow");
+            System.exit(0);
+          }
+        }
+        break;
+
+      case "--graph":
+        GraphingCalculator.init();
+        break;
     } // end command switch
   }
 
   public static long fibIterative(int n) {
-    if (n <= 1) return n;
+    if (n <= 1)
+      return n;
 
     long a = 0, b = 1; // Fib(0) = 0, Fib(1) = 1
     for (int i = 2; i <= n; i++) {
@@ -1152,8 +1183,10 @@ public class Main {
   }
 
   public static long fibMemo(int n) {
-    if (n <= 1) return n;
-    if (fibCache.containsKey(n)) return fibCache.get(n);
+    if (n <= 1)
+      return n;
+    if (fibCache.containsKey(n))
+      return fibCache.get(n);
 
     long result = fibMemo(n - 1) + fibMemo(n - 2);
     fibCache.put(n, result);
@@ -1161,8 +1194,10 @@ public class Main {
   }
 
   public static long modFib(int n, int m) {
-    if (n == 0) return 0;
-    if (n == 1) return 1 % m;
+    if (n == 0)
+      return 0;
+    if (n == 1)
+      return 1 % m;
 
     long a = 0;
     long b = 1;
@@ -1177,7 +1212,8 @@ public class Main {
   }
 
   public static long fibRecursive(int n) {
-    if (n <= 1) return n;
+    if (n <= 1)
+      return n;
     return fibRecursive(n - 1) + fibRecursive(n - 2);
   }
 
@@ -1221,7 +1257,8 @@ public class Main {
       System.out.print("Jcalc> ");
       String input = Sc.nextLine().trim();
 
-      if (input.isEmpty()) continue;
+      if (input.isEmpty())
+        continue;
 
       switch (input.toLowerCase()) {
         case "exit":
@@ -1233,32 +1270,32 @@ public class Main {
         case "help":
           System.out.println(
               """
-              Commands:
-                \33[31mhelp\33[0m      Show this message
-                \33[31mexit\33[0m      Quit JCalc
-                 \33[31mquit\33[0m      Same as exit
-                 \33[31mans\33[0m       Use last result in an expression
-                 \33[31mcos\33[0m       Calculate the cosine of an angle
-                 \33[31msin\33[0m       Find the sine of an angle
-                 \33[31mabs\33[0m       Find the absolute value of an equation
-                 \33[31msqrt\33[0m      Find the square root of a number
-                 \33[31mcbrt\33[0m      Find the cube root of a number
-                 \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
-                 \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
-                 \33[31mlog\33[0m       Used in logarithm problems
-                 \33[31mnl\33[0m        Used for natural logarithm problems
-              Examples:
-                \33[31m2 + 3 * 4
-                 ans / 2
-                 cos 778
-                 sin 67
-                 tan 72
-                 sqrt 4
-                 (2 * 4) / (2 + 2)
-                 cbrt (pi + 0)
-                 abs 998 + 5
-                 e + 0\33[0m
-              """);
+                  Commands:
+                    \33[31mhelp\33[0m      Show this message
+                    \33[31mexit\33[0m      Quit JCalc
+                     \33[31mquit\33[0m      Same as exit
+                     \33[31mans\33[0m       Use last result in an expression
+                     \33[31mcos\33[0m       Calculate the cosine of an angle
+                     \33[31msin\33[0m       Find the sine of an angle
+                     \33[31mabs\33[0m       Find the absolute value of an equation
+                     \33[31msqrt\33[0m      Find the square root of a number
+                     \33[31mcbrt\33[0m      Find the cube root of a number
+                     \33[31m(\33[0m         Used in Order Of Operations; Syntax rule: Must have a closing bracket.
+                     \33[31me\33[0m         The mathematical constant e is the base of natural logarithm. It is approximately equal to 2.18.
+                     \33[31mlog\33[0m       Used in logarithm problems
+                     \33[31mnl\33[0m        Used for natural logarithm problems
+                  Examples:
+                    \33[31m2 + 3 * 4
+                     ans / 2
+                     cos 778
+                     sin 67
+                     tan 72
+                     sqrt 4
+                     (2 * 4) / (2 + 2)
+                     cbrt (pi + 0)
+                     abs 998 + 5
+                     e + 0\33[0m
+                  """);
           continue;
 
         default:
