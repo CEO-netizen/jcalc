@@ -1063,32 +1063,6 @@ public class Main {
         }
         break;
 
-      case "-de":
-      case "--divideexact":
-        if (args.length != 3) {
-          System.out.println("Argument amount not met.\nUsage: -de <number> <number>");
-          System.exit(0);
-        } else {
-          try {
-            int num1_de = Integer.parseInt(args[1]);
-            int num2_de = Integer.parseInt(args[2]);
-
-            System.out.println(
-                num1_de
-                    + " divided by "
-                    + num2_de
-                    + " equals "
-                    + (Math.divideExact(num1_de, num2_de)));
-          } catch (ArithmeticException e) {
-            System.out.println("Error: overflow");
-            System.exit(0);
-          } catch (NumberFormatException e) {
-            System.out.println("Error: number format Exception");
-            System.exit(0);
-          }
-        }
-        break;
-
       case "-r":
       case "--round":
         if (args.length != 2) {
