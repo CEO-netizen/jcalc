@@ -228,7 +228,6 @@ public class Main {
                   + "- ADDEXACT: \33[31m-ae/--addexact\33[0m ARG_AMOUNT: 3\n"
                   + "- SUBTRACTEXACT \33[31m-se/--subtractexact\33[0m ARG_AMOUNT: 2\n"
                   + "- MULTIPLYEXACT \33[31m-me/--multiplyexact\33[0m ARG_AMOUNT: 2\n"
-                  + "- DIVIDEEXACT \33[31m-de/--divideexact\33[0m ARG_AMOUNT: 2"
                   + "- ROUND \33[31m-r/--round\33[0m ARG_AMOUNT: 1\n"
                   + "- SINH \33[31m-sh/--sinh\33[0m ARG_AMOUNT: 1"
                   + "- MIN \33[31--min\33[0m ARG_AMOUNT: 2");
